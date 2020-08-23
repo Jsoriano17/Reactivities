@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "HIfrQSGO378Im3BIBwrK5JrdqDocGe9NKPNb2OKxUJcvyqL23rR8V4z6Falz1Q+G+Inbbn9h5GMLhz8BjbfK/A==",
+  "success": true,
+  "projectFilePath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Domain/Domain.csproj",
+  "expectedPackageFiles": [
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
