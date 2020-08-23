@@ -4,6 +4,56 @@
     "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Persistence/Persistence.csproj": {}
   },
   "projects": {
+    "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Domain/Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Domain/Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Domain/Domain.csproj",
+        "packagesPath": "/Users/SomeWeirdWizard/.nuget/packages/",
+        "outputPath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/SomeWeirdWizard/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Persistence/Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -17,14 +67,18 @@
           "/Users/SomeWeirdWizard/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netstandard2.1"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
-            "projectReferences": {}
+          "netstandard2.1": {
+            "projectReferences": {
+              "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Domain/Domain.csproj": {
+                "projectPath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Domain/Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -34,13 +88,15 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
+        "netstandard2.1": {
           "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.3, )"
             }
           },
           "imports": [
@@ -53,6 +109,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
         }
       }
