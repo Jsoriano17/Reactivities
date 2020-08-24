@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import axios from "axios"
+import { PageHeader } from 'antd';
+import { List, Typography, Divider } from 'antd';
+import { RobotOutlined } from '@ant-design/icons';
+
+
 class App extends Component {
   state = {
     values: []
@@ -13,7 +17,7 @@ class App extends Component {
       this.setState({
         values: res.data
       })
-    }).catch (err => {
+    }).catch(err => {
       console.log(err)
     })
   }
@@ -21,14 +25,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <ul>
-            {this.state.values.map((value: any) => (
-              <li key={value.id}>{value.name}</li>
-            ))}
-          </ul>
-        </header>
+        <div style={{display:"flex", margin: "20px", alignItems: "center"}}>
+          <RobotOutlined spin style={{ fontSize: '50px', color: '#08c' }} />
+          <PageHeader
+            className="site-page-header"
+            title="Reactivities"
+            subTitle="best social media app"
+          />
+        </div>
+        <Divider orientation="left">Values</Divider>
+        <List
+          header={<div>name</div>}
+          bordered
+        >
+          {this.state.values.map((value: any) => (
+            <List.Item key={value.id}>{value.name}</List.Item>
+          ))}
+        </List>
       </div>
     )
   }
