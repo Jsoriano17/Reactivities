@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "zlU1QtNH83AvojF9wUaIcNdr6YJi3ILn0bUEClwezqXn88zdW7gjlT0fWn2/Ga49rpN/Yxq3ZBfZrMxoki4heA==",
+  "dgSpecHash": "EeXAvAuL0hsGS3bTiM7SJBpVexdv717sJD1YvHRqftlx2uEN5DaFkJI4JiTbEsQQ9C+ijOWxWy06XvcSb12RFQ==",
   "success": true,
   "projectFilePath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Application/Application.csproj",
   "expectedPackageFiles": [
+    "/Users/SomeWeirdWizard/.nuget/packages/mediatr/8.1.0/mediatr.8.1.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/8.1.0/mediatr.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.data.sqlite.core/3.1.3/microsoft.data.sqlite.core.3.1.3.nupkg.sha512",

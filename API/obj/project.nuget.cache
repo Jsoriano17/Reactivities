@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/E9UAE4e6pSKk9a/3SSuCYjnAP6W235qSNZaa1inMPyNIFidyRS/07bHsC5kv2UB9izHgbLOkGfyfFSgT8L3OA==",
+  "dgSpecHash": "MP/OtQIcVfUVwK2NfzYDHTfjUg2BPSgtc+cnGP/kXOYq6UwEz1UNPW8uiI6gCU/hpDTml5d3cS5CAzvew4yf1w==",
   "success": true,
   "projectFilePath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/API/API.csproj",
   "expectedPackageFiles": [
+    "/Users/SomeWeirdWizard/.nuget/packages/mediatr/8.1.0/mediatr.8.1.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/8.1.0/mediatr.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
