@@ -5,9 +5,10 @@ import { List, Button, Col, Row } from 'antd';
 
 interface IProps {
     activities: IActivity[]
+    selectActivity: (id: string) => void;
 }
 
-const ActivityList: React.FC<IProps> = ({ activities }) => {
+const ActivityList: React.FC<IProps> = ({ activities, selectActivity}) => {
     return (
         <List
             itemLayout="vertical"
@@ -36,7 +37,7 @@ const ActivityList: React.FC<IProps> = ({ activities }) => {
                                 <Button > {activity.category}</Button>
                             </Col>
                             <Col span={12}>
-                                <Button type="primary">View</Button>
+                                <Button onClick={() => selectActivity(activity.id)} type="primary">View</Button>
                             </Col>
                         </Row>
                     </List.Item>
