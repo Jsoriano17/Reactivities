@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Menu } from 'antd';
 import { ContactsOutlined } from '@ant-design/icons';
 
+
+
 const NavBar = () => {
     const [current, setCurrent] = useState(['activity']);
 

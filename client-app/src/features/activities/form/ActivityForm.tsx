@@ -1,8 +1,17 @@
-import React from 'react';
-import { Form, Input, Button, Checkbox, Card, DatePicker } from 'antd';
+import React, { useState, FormEvent } from 'react';
+import { Form, Input, Button, Card } from 'antd';
+import styled from 'styled-components';
+import { IActivity } from '../../../app/models/activity';
+import {v4 as uuid} from 'uuid';
 
+interface IProps {
+    setEditMode: (editMode: boolean) => void;
+    activity: IActivity;
+    createActivity: (activity: IActivity) => void;
+    editActivity: (activity: IActivity) => void;
+}
 
-const ActivityForm = () => {
+const ActivityForm: React.FC<IProps> = ({ setEditMode, activity: initialFormState , createActivity, editActivity}) => {
 
     const layout = {
         labelCol: { span: 8 },
@@ -13,77 +22,125 @@ const ActivityForm = () => {
     };
 
     const onFinish = (values: any) => {
-        console.log('Success:', values);
+        if(activity.id.length === 0) {
+            let newActivity = {
+                ...activity, 
+                id: uuid()
+            }
+            createActivity(newActivity);
+        } else {
+            editActivity(activity);
+        }
     };
 
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };
 
+    const handleChange = (e: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const {name, value} = e.currentTarget;
+        setActivity({...activity, [name]: value});
+    }
+
+    const initializeForm = () => {
+        if (initialFormState) {
+            return initialFormState
+        } else {
+            return {
+                id: '',
+                title: '',
+                category: '',
+                description: '',
+                date: '',
+                city: '',
+                venue: ''
+            }
+        }
+    }
+
+    const [activity, setActivity] = useState<IActivity>(initializeForm);
+
     return (
         <Card style={{ margin: ' 15px 30px', width: '90%' }}>
             <Form
                 {...layout}
                 name="basic"
-                initialValues={{ remember: true }}
+                initialValues={{
+                    ["Title"]: activity.title,
+                    ["Description"]: activity.description,
+                    ["Category"]: activity.category,
+                    ["Date"]: activity.date,
+                    ["City"]: activity.city,
+                    ["Venue"]: activity.venue,
+                  }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
             >
                 <Form.Item
                     label="Title"
                     name="Title"
-                    rules={[{ required: true, message: 'Please input your title!' }]}
+                    rules={[{ required: true, message: 'Please input a title' }]}
                 >
-                    <Input />
+                    <Input name="title" onChange={handleChange} />
                 </Form.Item>
 
                 <Form.Item
                     label="Description"
                     name="Description"
-                    rules={[{ required: true, message: 'Please input your Description' }]}
+                    rules={[{ required: true, message: 'Please input a description' }]}
                 >
-                    <Input.TextArea />
+                    <Input.TextArea name="description" onChange={handleChange}/>
                 </Form.Item>
 
                 <Form.Item
                     label="Category"
                     name="Category"
-                    rules={[{ required: true, message: 'Please input your Category' }]}
+                    rules={[{ required: true, message: 'Please input a category' }]}
                 >
-                    <Input />
+                    <Input name="category" onChange={handleChange}/>
                 </Form.Item>
 
                 <Form.Item
                     label="Date"
                     name="Date"
-                    rules={[{ required: true, message: 'Please input your Date' }]}
+                    rules={[{ required: true, message: 'Please input a date' }]}
                 >
-                    <DatePicker />
+                    <Input name='date' onChange={handleChange}/>
                 </Form.Item>
 
                 <Form.Item
                     label="City"
                     name="City"
-                    rules={[{ required: true, message: 'Please input your City' }]}
+                    rules={[{ required: true, message: 'Please input your city' }]}
                 >
-                    <Input />
+                    <Input name="city" onChange={handleChange}/>
                 </Form.Item>
 
                 <Form.Item
                     label="Venue"
                     name="Venue"
-                    rules={[{ required: true, message: 'Please input your Venue' }]}
+                    rules={[{ required: true, message: 'Please input a venue' }]}
                 >
-                    <Input />
+                    <Input name="venue" onChange={handleChange}/>
                 </Form.Item>
 
                 <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Submit
-        </Button>
+                    <Component>
+                        <Button onClick={() => setEditMode(false)} style={{ margin: '0 10px' }} type="default">
+                            Cancel
+                    </Button>
+                        <Button style={{ margin: '0 10px' }} type="primary" htmlType="submit">
+                            Submit
+                    </Button>
+                    </Component>
                 </Form.Item>
             </Form>
         </Card>
     )
 }
 export default ActivityForm;
+
+const Component = styled.div`
+    display: flex;
+    flex-direction: row;
+`
