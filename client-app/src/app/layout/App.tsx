@@ -7,7 +7,6 @@ import { IActivity } from '../models/activity';
 import styled from 'styled-components';
 import NavBar from '../../features/nav/NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
-import { act } from 'react-dom/test-utils';
 
 const App = () => {
   const [activities, setActivites] = useState<IActivity[]>([]);
@@ -16,6 +15,7 @@ const App = () => {
 
   const handleSelectActivity = (id: string) => {
     setSelectedActivity(activities.filter(a => a.id === id)[0])
+    setEditMode(false)
   }
 
   const handleOpenCreateForm = () => {
@@ -25,7 +25,12 @@ const App = () => {
 
   useEffect(() => {
     axios.get<IActivity[]>('http://localhost:5000/api/activities').then(res => {
-          setActivites(res.data)
+          let activities: IActivity[] = [];
+          res.data.forEach(activity => {
+            activity.date = activity.date.split('.')[0]
+            activities.push(activity);
+          })
+          setActivites(activities)
         }).catch(err => {
           console.log(err)
         })
@@ -42,6 +47,10 @@ const App = () => {
     setActivites([...activities.filter(a => a.id !== activity.id), activity])
     setSelectedActivity(activity)
     setEditMode(false)
+  }
+
+  const handleDeleteActivity = (id: string) => {
+    setActivites([...activities.filter(a => a.id !== id)])
   }
 
   return (
@@ -66,7 +75,7 @@ const App = () => {
         setSelectedActivity={setSelectedActivity}
         createActivity={handleCreateActivity}
         editActivity={handleEditActivity}
-
+        deleteActivity={handleDeleteActivity}
         />
       </Container>
     </div>

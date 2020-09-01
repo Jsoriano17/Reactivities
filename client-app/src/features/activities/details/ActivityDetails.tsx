@@ -1,8 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
-import { Button, Radio } from 'antd';
+import { Radio } from 'antd';
 import { IActivity } from '../../../app/models/activity';
-import { IpcNetConnectOpts } from 'net';
 
 
 const { Meta } = Card;

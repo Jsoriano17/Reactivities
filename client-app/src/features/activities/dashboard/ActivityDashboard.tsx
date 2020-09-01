@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, List } from 'antd';
+import { Row, Col } from 'antd';
 import { IActivity } from '../../../app/models/activity';
 import ActivityList from './ActivityList';
 import ActivityDetails from '../details/ActivityDetails';
@@ -15,19 +15,31 @@ interface IProps {
     setSelectedActivity: (activity: IActivity | null) => void;
     createActivity: (activity: IActivity) => void;
     editActivity: (activity: IActivity) => void;
+    deleteActivity: (id: string) => void;
 }
 
-const ActivityDashboard: React.FC<IProps> = ({ activities, selectActivity, selectedActivity, editMode, setEditMode, setSelectedActivity, createActivity, editActivity }) => {
+const ActivityDashboard: React.FC<IProps> = ({ 
+    activities, 
+    selectActivity, 
+    selectedActivity, 
+    editMode, 
+    setEditMode, 
+    setSelectedActivity, 
+    createActivity, 
+    editActivity,
+    deleteActivity
+ }) => {
     return (
         <Component>
             <Row>
                 <Col span={16}>
-                    <ActivityList activities={activities} selectActivity={selectActivity} />
+                    <ActivityList activities={activities} selectActivity={selectActivity} deleteActivity={deleteActivity} />
                 </Col>
                 <Col span={8}>
                     {selectedActivity && !editMode &&
                         <ActivityDetails activity={selectedActivity} setEditMode={setEditMode} setSelectedActivity={setSelectedActivity} />}
                     {editMode && <ActivityForm
+                        key={selectedActivity && selectedActivity.id || 0}
                         setEditMode={setEditMode}
                         activity={selectedActivity!}
                         createActivity={createActivity}
