@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import { IActivity } from '../../../app/models/activity';
 import { List, Button, Col, Row } from 'antd';
 
@@ -6,11 +6,12 @@ import { List, Button, Col, Row } from 'antd';
 interface IProps {
     activities: IActivity[]
     selectActivity: (id: string) => void;
-    deleteActivity: (id: string) => void;
-
+    deleteActivity: (event: SyntheticEvent<HTMLButtonElement>, id: string) => void;
+    submitting: boolean;
+    target: string;
 }
 
-const ActivityList: React.FC<IProps> = ({ activities, selectActivity, deleteActivity }) => {
+const ActivityList: React.FC<IProps> = ({ activities, selectActivity, deleteActivity, submitting, target}) => {
     return (
         <List
             itemLayout="vertical"
@@ -39,7 +40,11 @@ const ActivityList: React.FC<IProps> = ({ activities, selectActivity, deleteActi
                                 <Button > {activity.category}</Button>
                             </Col>
                             <Col span={8}>
-                                <Button onClick={() => deleteActivity(activity.id)} type="primary" danger>Delete</Button>
+                                <Button 
+                                name={activity.id} 
+                                loading={target === activity.id && submitting} 
+                                onClick={(e: any) => {deleteActivity(e, activity.id)}}
+                                type="primary" danger>Delete</Button>
                             </Col>
                             <Col span={8}>
                                 <Button onClick={() => selectActivity(activity.id)} type="primary">View</Button>

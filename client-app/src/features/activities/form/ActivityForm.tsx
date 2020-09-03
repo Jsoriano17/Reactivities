@@ -9,9 +9,10 @@ interface IProps {
     activity: IActivity;
     createActivity: (activity: IActivity) => void;
     editActivity: (activity: IActivity) => void;
+    submitting: boolean;
 }
 
-const ActivityForm: React.FC<IProps> = ({ setEditMode, activity: initialFormState , createActivity, editActivity}) => {
+const ActivityForm: React.FC<IProps> = ({ setEditMode, activity: initialFormState , createActivity, editActivity, submitting}) => {
 
     const layout = {
         labelCol: { span: 8 },
@@ -129,7 +130,7 @@ const ActivityForm: React.FC<IProps> = ({ setEditMode, activity: initialFormStat
                         <Button onClick={() => setEditMode(false)} style={{ margin: '0 10px' }} type="default">
                             Cancel
                     </Button>
-                        <Button style={{ margin: '0 10px' }} type="primary" htmlType="submit">
+                        <Button loading={submitting} style={{ margin: '0 10px' }} type="primary" htmlType="submit">
                             Submit
                     </Button>
                     </Component>
