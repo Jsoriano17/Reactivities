@@ -1,4 +1,4 @@
-import React, { useState, useEffect, SyntheticEvent } from 'react';
+import React, { useState, useEffect, SyntheticEvent, useContext } from 'react';
 import { PageHeader } from 'antd';
 import { Divider, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
@@ -8,15 +8,17 @@ import NavBar from '../../features/nav/NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
 import agent from '../api/agent';
 import LoadingComponent from './LoadingComponent';
+import ActivityStore from '../stores/activityStore';
 
 const App = () => {
+  const activityStore = useContext(ActivityStore)
   const [activities, setActivities] = useState<IActivity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(null);
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] =  useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [target, setTarget] = useState('');
- 
+
   const handleSelectActivity = (id: string) => {
     setSelectedActivity(activities.filter(a => a.id === id)[0])
     setEditMode(false)
@@ -82,6 +84,7 @@ const App = () => {
       </div>
       <Divider orientation="left">Activities</Divider>
       <Container>
+        <h1>{activityStore.title}</h1>
         <ActivityDashboard activities={activities}
           selectActivity={handleSelectActivity}
           selectedActivity={selectedActivity}
