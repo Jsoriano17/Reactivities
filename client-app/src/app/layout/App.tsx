@@ -9,6 +9,7 @@ import ActivityDashboard from '../../features/activities/dashboard/ActivityDashb
 import agent from '../api/agent';
 import LoadingComponent from './LoadingComponent';
 import ActivityStore from '../stores/activityStore';
+import {observer} from 'mobx-react-lite';
 
 const App = () => {
   const activityStore = useContext(ActivityStore)
@@ -30,16 +31,8 @@ const App = () => {
   }
 
   useEffect(() => {
-    agent.Activities.list()
-      .then(response => {
-        let activities: IActivity[] = [];
-        response.forEach((activity) => {
-          activity.date = activity.date.split('.')[0]
-          activities.push(activity);
-        })
-        setActivities(activities)
-      }).then(() => setLoading(false))
-  }, [])
+    activityStore.loadActivities();
+  }, [activityStore])
 
   const handleCreateActivity = (activity: IActivity) => {
     setSubmitting(true)
@@ -68,7 +61,7 @@ const App = () => {
     }).then(() => setSubmitting(false));
   }
 
-  if (loading) return <LoadingComponent />
+  if (activityStore.loadingInitial) return <LoadingComponent />
 
   return (
     <div className="App">
@@ -84,11 +77,8 @@ const App = () => {
       </div>
       <Divider orientation="left">Activities</Divider>
       <Container>
-        <h1>{activityStore.title}</h1>
-        <ActivityDashboard activities={activities}
+        <ActivityDashboard activities={activityStore.activities}
           selectActivity={handleSelectActivity}
-          selectedActivity={selectedActivity}
-          editMode={editMode}
           setEditMode={setEditMode}
           setSelectedActivity={setSelectedActivity}
           createActivity={handleCreateActivity}
@@ -102,7 +92,7 @@ const App = () => {
   )
 }
 
-export default App;
+export default observer(App);
 
 const Container = styled.div`
 margin: 30px
