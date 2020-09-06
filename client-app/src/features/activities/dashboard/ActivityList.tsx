@@ -38,7 +38,7 @@ const ActivityList: React.FC<IProps> = ({ deleteActivity, submitting, target}) =
                         <div> {activity.city}, {activity.venue}</div>
                         <Row style={{ marginTop: '70px' }}>
                             <Col span={8}>
-                                <Button > {activity.category}</Button>
+                                <Button> {activity.category}</Button>
                             </Col>
                             <Col span={8}>
                                 <Button 
