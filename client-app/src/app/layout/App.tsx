@@ -25,24 +25,9 @@ const App = () => {
     setEditMode(false)
   }
 
-  const handleOpenCreateForm = () => {
-    setSelectedActivity(null);
-    setEditMode(true);
-  }
-
   useEffect(() => {
     activityStore.loadActivities();
   }, [activityStore])
-
-  const handleCreateActivity = (activity: IActivity) => {
-    setSubmitting(true)
-    agent.Activities.create(activity).then(() => {
-      setActivities([...activities, activity])
-      setSelectedActivity(activity)
-      setEditMode(false)
-    }).then(() => setSubmitting(false))
-  }
-
 
   const handleEditActivity = (activity: IActivity) => {
     setSubmitting(true)
@@ -73,15 +58,13 @@ const App = () => {
           style={{ marginRight: "5%" }}
         />
         <NavBar />
-        <Button icon={<PlusOutlined />} style={{ margin: "0px 5%" }} type="primary" onClick={handleOpenCreateForm}>Create Activity</Button>
+        <Button icon={<PlusOutlined />} style={{ margin: "0px 5%" }} type="primary" onClick={activityStore.openCreateForm}>Create Activity</Button>
       </div>
       <Divider orientation="left">Activities</Divider>
       <Container>
-        <ActivityDashboard activities={activityStore.activities}
-          selectActivity={handleSelectActivity}
+        <ActivityDashboard 
           setEditMode={setEditMode}
           setSelectedActivity={setSelectedActivity}
-          createActivity={handleCreateActivity}
           editActivity={handleEditActivity}
           deleteActivity={handleDeleteActivity}
           submitting={submitting}

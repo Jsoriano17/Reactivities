@@ -33,7 +33,7 @@ namespace Application.Activities
                 var activity = new Activity
                 {
                     Id = request.Id,
-                    Title = request.Category,
+                    Title = request.Title,
                     Description = request.Description,
                     Category = request.Category, 
                     Date = request.Date, 

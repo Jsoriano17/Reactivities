@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Menu } from 'antd';
 import { ContactsOutlined } from '@ant-design/icons';
-
 
 
 const NavBar = () => {

@@ -12,7 +12,7 @@ interface IProps {
 
 const ActivityList: React.FC<IProps> = ({ deleteActivity, submitting, target}) => {
     const activityStore = useContext(ActivityStore)
-    const {activities, selectActivity} = activityStore;
+    const {activitiesByDate, selectActivity} = activityStore;
     return (
         <List
             itemLayout="vertical"
@@ -24,7 +24,7 @@ const ActivityList: React.FC<IProps> = ({ deleteActivity, submitting, target}) =
                 pageSize: 3,
             }}>
 
-            {activities.map(activity => (
+            {activitiesByDate.map(activity => (
                 <>
                     <List.Item key={activity.id} extra={
                         <img
