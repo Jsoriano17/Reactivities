@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Card } from 'antd';
 import { Radio } from 'antd';
-import { IActivity } from '../../../app/models/activity';
 import ActivityStore from '../../../app/stores/activityStore';
 import { observer } from 'mobx-react-lite';
 

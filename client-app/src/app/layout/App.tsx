@@ -1,36 +1,20 @@
-import React, { useState, useEffect, SyntheticEvent, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { PageHeader } from 'antd';
 import { Divider, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { IActivity } from '../models/activity';
 import styled from 'styled-components';
 import NavBar from '../../features/nav/NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
-import agent from '../api/agent';
 import LoadingComponent from './LoadingComponent';
 import ActivityStore from '../stores/activityStore';
 import {observer} from 'mobx-react-lite';
 
 const App = () => {
   const activityStore = useContext(ActivityStore)
-  const [activities, setActivities] = useState<IActivity[]>([]);
-  const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(null);
-  const [editMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
-  const [target, setTarget] = useState('');
 
   useEffect(() => {
     activityStore.loadActivities();
   }, [activityStore])
-
-  const handleDeleteActivity = (event: SyntheticEvent<HTMLButtonElement>, id: string) => {
-    setSubmitting(true);
-    setTarget(event.currentTarget.name);
-    agent.Activities.delete(id).then(() => {
-      setActivities([...activities.filter(a => a.id !== id)])
-    }).then(() => setSubmitting(false));
-  }
 
   if (activityStore.loadingInitial) return <LoadingComponent />
 
@@ -48,11 +32,7 @@ const App = () => {
       </div>
       <Divider orientation="left">Activities</Divider>
       <Container>
-        <ActivityDashboard 
-          deleteActivity={handleDeleteActivity}
-          submitting={submitting}
-          target={target}
-        />
+        <ActivityDashboard />
       </Container>
     </div>
   )
