@@ -1,13 +1,13 @@
 import React, { useEffect, useContext } from 'react';
-import { PageHeader } from 'antd';
-import { Divider, Button } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import NavBar from '../../features/nav/NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
 import LoadingComponent from './LoadingComponent';
 import ActivityStore from '../stores/activityStore';
-import {observer} from 'mobx-react-lite';
+import { observer } from 'mobx-react-lite';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from '../../features/home/HomePage';
+import ActivityForm from '../../features/activities/form/ActivityForm';
 
 const App = () => {
   const activityStore = useContext(ActivityStore)
@@ -19,27 +19,21 @@ const App = () => {
   if (activityStore.loadingInitial) return <LoadingComponent />
 
   return (
-    <div className="App">
-      <div style={{ display: "flex", flexDirection: "row", margin: "20px", alignItems: 'center', }}>
-        <img src="/assets/logo-black.png" style={{ fontSize: '50px', color: '#08c', margin: '0px 2%', width: "105px", height: "100px" }} alt="logo" />
-        <PageHeader
-          className="site-page-header"
-          title="Reactivities"
-          style={{ marginRight: "5%" }}
-        />
-        <NavBar />
-        <Button icon={<PlusOutlined />} style={{ margin: "0px 5%" }} type="primary" onClick={activityStore.openCreateForm}>Create Activity</Button>
-      </div>
-      <Divider orientation="left">Activities</Divider>
+    <>
+      <NavBar />
       <Container>
-        <ActivityDashboard />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path='/activities' component={ActivityDashboard} />
+          <Route path='/createActivity' component={ActivityForm} />
+        </Switch>
       </Container>
-    </div>
+    </>
   )
 }
 
 export default observer(App);
 
 const Container = styled.div`
-margin: 30px
+  margin: 30px
 `
