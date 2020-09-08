@@ -5,8 +5,9 @@ import { PlusOutlined } from '@ant-design/icons';
 import ActivityStore from '../../app/stores/activityStore';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
     const [current, setCurrent] = useState(['activity']);
     const activityStore = useContext(ActivityStore);
 
@@ -24,9 +25,9 @@ const NavBar = () => {
                 style={{ marginRight: "5%" }}
             />
             <Menu onClick={handleClick} selectedKeys={current} mode="horizontal" style={{ width: "100%" }}>
-                <Menu.Item key="activity" icon={<ContactsOutlined />}>Activities</Menu.Item>
+                <Menu.Item as={Link} to='/activities' key="activity" icon={<ContactsOutlined />}>Activities</Menu.Item>
             </Menu>
-            <Button icon={<PlusOutlined />} style={{ margin: "0px 5%" }} type="primary" onClick={activityStore.openCreateForm}>Create Activity</Button>
+            <Button icon={<PlusOutlined />} style={{ margin: "0px 5%" }} type="primary" as={Link} to='/createActivity'>Create Activity</Button>
         </Container>
     )
 }
