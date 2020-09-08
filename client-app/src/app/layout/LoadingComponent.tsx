@@ -2,13 +2,17 @@ import React from 'react';
 import { Spin } from 'antd';
 import styled from 'styled-components';
 
-const LoadingComponent = () => {
+interface IProps {
+    content: string;
+}
 
-    return(
+const LoadingComponent: React.FC<IProps> = ({ content }) => {
+
+    return (
         <Component>
-             <Spin  size="large"/>
-             <br/>
-             <p>loading content...</p>
+            <Spin size="large" />
+            <br />
+            <p>{content}</p>
         </Component>
     )
 }

@@ -18,17 +18,25 @@ const NavBar: React.FC = () => {
 
     return (
         <Container>
-            <StyledImg src="/assets/logo-black.png" alt="logo" />
+            <Link to='/' style={{ margin: '0px 2%' }}>
+                <StyledImg src="/assets/logo-black.png" alt="logo" />
+            </Link>
             <PageHeader
                 className="site-page-header"
                 title="Reactivities"
                 style={{ marginRight: "5%" }}
             />
+
             <Menu onClick={handleClick} selectedKeys={current} mode="horizontal" style={{ width: "100%" }}>
-                <Menu.Item as={Link} to='/activities' key="activity" icon={<ContactsOutlined />}>Activities</Menu.Item>
+                <Menu.Item key="activity" icon={<ContactsOutlined />}>
+                    <Link to='/activities'>Activities</Link>
+                </Menu.Item>
             </Menu>
-            <Button icon={<PlusOutlined />} style={{ margin: "0px 5%" }} type="primary" as={Link} to='/createActivity'>Create Activity</Button>
-        </Container>
+            <Link to='/createActivity' style={{ margin: "0px 5%" }}>
+                <Button icon={<PlusOutlined />} type="primary">Create Activity</Button>
+            </Link>
+
+        </Container >
     )
 }
 

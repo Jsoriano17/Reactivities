@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { List, Button, Col, Row } from 'antd';
 import { observer } from 'mobx-react-lite';
 import ActivityStore from '../../../app/stores/activityStore';
+import { Link } from 'react-router-dom';
 
 const ActivityList: React.FC = () => {
     const activityStore = useContext(ActivityStore)
-    const {activitiesByDate, selectActivity, deleteActivity, submitting, target} = activityStore;
+    const { activitiesByDate, selectActivity, deleteActivity, submitting, target } = activityStore;
     return (
         <List
             itemLayout="vertical"
@@ -34,14 +35,16 @@ const ActivityList: React.FC = () => {
                                 <Button> {activity.category}</Button>
                             </Col>
                             <Col span={8}>
-                                <Button 
-                                name={activity.id} 
-                                loading={target === activity.id && submitting} 
-                                onClick={(e: any) => {deleteActivity(e, activity.id)}}
-                                type="primary" danger>Delete</Button>
+                                <Button
+                                    name={activity.id}
+                                    loading={target === activity.id && submitting}
+                                    onClick={(e: any) => { deleteActivity(e, activity.id) }}
+                                    type="primary" danger>Delete</Button>
                             </Col>
                             <Col span={8}>
-                                <Button onClick={() => selectActivity(activity.id)} type="primary">View</Button>
+                                <Link to={`/activities/${activity.id}`}>
+                                    <Button type="primary">View</Button>
+                                </Link>
                             </Col>
                         </Row>
                     </List.Item>
