@@ -1,32 +1,64 @@
-import React, { useState, FormEvent, useContext } from 'react';
+import React, { useState, FormEvent, useContext, useEffect } from 'react';
 import { Form, Input, Button, Card } from 'antd';
 import styled from 'styled-components';
 import { IActivity } from '../../../app/models/activity';
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 import ActivityStore from '../../../app/stores/activityStore';
 import { observer } from 'mobx-react-lite';
+import { RouteComponentProps } from 'react-router-dom';
 
-interface IProps {
-    activity: IActivity;
+interface DetailParams {
+    id: string
 }
 
-const ActivityForm: React.FC<IProps> = ({ activity: initialFormState}) => {
+const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match }) => {
 
-    const activityStore = useContext(ActivityStore);
-    const {createActivity, editActivity, submitting, cancelFormOpen} = activityStore; 
+    console.log(match.params.id)
 
     const layout = {
         labelCol: { span: 8 },
         wrapperCol: { span: 16 },
     };
+
     const tailLayout = {
         wrapperCol: { offset: 8, span: 16 },
     };
 
+    const activityStore = useContext(ActivityStore);
+    const {
+      createActivity,
+      editActivity,
+      submitting,
+      activity: initialFormState,
+      loadActivity,
+      cancelFormOpen
+    } = activityStore;
+
+    useEffect(() => {
+        if (match.params.id) {
+          loadActivity(match.params.id).then(
+            () => initialFormState && setActivity(initialFormState)
+          ).catch(err => {
+              console.log(err)
+          });
+        }
+      },[]);  
+  
+    const [activity, setActivity] = useState<IActivity>({
+      id: '',
+      title: '',
+      category: '',
+      description: '',
+      date: '',
+      city: '',
+      venue: ''
+    });
+  
+ 
     const onFinish = (values: any) => {
-        if(activity.id.length === 0) {
+        if (activity.id.length === 0) {
             let newActivity = {
-                ...activity, 
+                ...activity,
                 id: uuid()
             }
             createActivity(newActivity);
@@ -40,30 +72,13 @@ const ActivityForm: React.FC<IProps> = ({ activity: initialFormState}) => {
     };
 
     const handleChange = (e: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const {name, value} = e.currentTarget;
-        setActivity({...activity, [name]: value});
+        const { name, value } = e.currentTarget;
+        setActivity({ ...activity, [name]: value });
     }
-
-    const initializeForm = () => {
-        if (initialFormState) {
-            return initialFormState
-        } else {
-            return {
-                id: '',
-                title: '',
-                category: '',
-                description: '',
-                date: '',
-                city: '',
-                venue: ''
-            }
-        }
-    }
-
-    const [activity, setActivity] = useState<IActivity>(initializeForm);
 
     return (
         <Card style={{ margin: ' 15px 30px', width: '90%' }}>
+            {console.log(activity)}
             <Form
                 {...layout}
                 name="basic"
@@ -74,7 +89,7 @@ const ActivityForm: React.FC<IProps> = ({ activity: initialFormState}) => {
                     ["Date"]: activity.date,
                     ["City"]: activity.city,
                     ["Venue"]: activity.venue,
-                  }}
+                }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
             >
@@ -91,7 +106,7 @@ const ActivityForm: React.FC<IProps> = ({ activity: initialFormState}) => {
                     name="Description"
                     rules={[{ required: true, message: 'Please input a description' }]}
                 >
-                    <Input.TextArea name="description" onChange={handleChange}/>
+                    <Input.TextArea name="description" onChange={handleChange} />
                 </Form.Item>
 
                 <Form.Item
@@ -99,7 +114,7 @@ const ActivityForm: React.FC<IProps> = ({ activity: initialFormState}) => {
                     name="Category"
                     rules={[{ required: true, message: 'Please input a category' }]}
                 >
-                    <Input name="category" onChange={handleChange}/>
+                    <Input name="category" onChange={handleChange} />
                 </Form.Item>
 
                 <Form.Item
@@ -107,7 +122,7 @@ const ActivityForm: React.FC<IProps> = ({ activity: initialFormState}) => {
                     name="Date"
                     rules={[{ required: true, message: 'Please input a date' }]}
                 >
-                    <Input name='date' onChange={handleChange}/>
+                    <Input name='date' onChange={handleChange} />
                 </Form.Item>
 
                 <Form.Item
@@ -115,7 +130,7 @@ const ActivityForm: React.FC<IProps> = ({ activity: initialFormState}) => {
                     name="City"
                     rules={[{ required: true, message: 'Please input your city' }]}
                 >
-                    <Input name="city" onChange={handleChange}/>
+                    <Input name="city" onChange={handleChange} />
                 </Form.Item>
 
                 <Form.Item
@@ -123,7 +138,7 @@ const ActivityForm: React.FC<IProps> = ({ activity: initialFormState}) => {
                     name="Venue"
                     rules={[{ required: true, message: 'Please input a venue' }]}
                 >
-                    <Input name="venue" onChange={handleChange}/>
+                    <Input name="venue" onChange={handleChange} />
                 </Form.Item>
 
                 <Form.Item {...tailLayout}>
