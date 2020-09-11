@@ -11,7 +11,6 @@ export class ActivityStore {
     @observable loadingInitial = false;
     @observable submitting = false;
     @observable target = '';
-    @observable editMode = false; 
 
     @computed get activitiesByDate() {
       return Array.from(this.activityRegistry.values()).sort(
@@ -118,30 +117,6 @@ export class ActivityStore {
         console.log(error);
       }
     }
-
-    @action openCreateForm = () => {
-      this.editMode = true;
-      this.activity = null; 
-    }
-
-    @action openEditForm = (id: string) => {
-      this.activity = this.activityRegistry.get(id);
-      this.editMode = true;
-    }
-
-    @action cancelSelectedActivity = () => {
-      this.activity = null; 
-    }
-
-    @action cancelFormOpen = () => {
-      this.editMode = false; 
-    }
-
-    @action selectActivity = (id: string) => {
-        this.activity = this.activityRegistry.get(id);
-        this.editMode = false; 
-    }
-
 }
 
 export default createContext(new ActivityStore())

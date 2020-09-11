@@ -29,7 +29,6 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match, hist
         submitting,
         activity: initialFormState,
         loadActivity,
-        cancelFormOpen,
         clearActivity
     } = activityStore;
 
@@ -145,7 +144,7 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match, hist
 
                 <Form.Item {...tailLayout}>
                     <Component>
-                        <Button onClick={cancelFormOpen} style={{ margin: '0 10px' }} type="default">
+                        <Button onClick={() => history.push('/activities')} style={{ margin: '0 10px' }} type="default">
                             Cancel
                     </Button>
                         <Button loading={submitting} style={{ margin: '0 10px' }} type="primary" htmlType="submit">

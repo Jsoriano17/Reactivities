@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     return (
-        <Container as={Link} to='/activities'>
+        <Container>
             <h1>HomePage</h1>
             <h3>go to <Link to='/activities'>activities</Link></h3>
         </Container>
@@ -14,5 +14,5 @@ const HomePage = () => {
 export default HomePage;
 
 const Container = styled.div`
-    margin: 30px
+    margin: 100px 35px;
 `

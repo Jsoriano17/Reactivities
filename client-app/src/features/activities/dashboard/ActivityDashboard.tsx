@@ -1,15 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Row, Col } from 'antd';
 import ActivityList from './ActivityList';
-import ActivityDetails from '../details/ActivityDetails';
-import ActivityForm from '../form/ActivityForm';
 import styled from 'styled-components'
 import { observer } from 'mobx-react-lite';
 import ActivityStore from '../../../app/stores/activityStore';
+import LoadingComponent from '../../../app/layout/LoadingComponent';
 
 const ActivityDashboard: React.FC = () => {
     const activityStore = useContext(ActivityStore)
-    const {editMode, activity} = activityStore
+
+    useEffect(() => {
+      activityStore.loadActivities();
+    }, [activityStore])
+  
+    if (activityStore.loadingInitial) return <LoadingComponent content='loading content...' />
     return (
         <Component>
             <Row>

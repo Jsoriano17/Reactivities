@@ -2,14 +2,12 @@ import React, { useState, useContext } from 'react';
 import { Menu, PageHeader, Button } from 'antd';
 import { ContactsOutlined } from '@ant-design/icons';
 import { PlusOutlined } from '@ant-design/icons';
-import ActivityStore from '../../app/stores/activityStore';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
     const [current, setCurrent] = useState(['activity']);
-    const activityStore = useContext(ActivityStore);
 
     const handleClick = (e: any) => {
         console.log('click ', e);
@@ -35,7 +33,6 @@ const NavBar: React.FC = () => {
             <Link to='/createActivity' style={{ margin: "0px 5%" }}>
                 <Button icon={<PlusOutlined />} type="primary">Create Activity</Button>
             </Link>
-
         </Container >
     )
 }
@@ -45,8 +42,14 @@ export default observer(NavBar);
 const Container = styled.div`
     display: flex; 
     flex-direction: row;
-    margin: 20px;
     align-items: center;
+    position:fixed;
+    width:100%;
+    left:0;
+    top:0;
+    right: 0;
+    z-index: 1000;
+    background: white;
 `
 const StyledImg = styled.img`
     fontSize: 50px;
