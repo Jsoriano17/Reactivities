@@ -11,7 +11,7 @@ interface DetailParams {
     id: string
 }
 
-const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match }) => {
+const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match, history }) => {
 
     const layout = {
         labelCol: { span: 8 },
@@ -24,45 +24,49 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match }) =>
 
     const activityStore = useContext(ActivityStore);
     const {
-      createActivity,
-      editActivity,
-      submitting,
-      activity: initialFormState,
-      loadActivity,
-      cancelFormOpen
+        createActivity,
+        editActivity,
+        submitting,
+        activity: initialFormState,
+        loadActivity,
+        cancelFormOpen,
+        clearActivity
     } = activityStore;
+
+
+    const [activity, setActivity] = useState<IActivity>({
+        id: '',
+        title: '',
+        category: '',
+        description: '',
+        date: '',
+        city: '',
+        venue: ''
+    });
 
     //this should be filling out the form with the info for the activity being edited 
     //but its not. its seems to be a problem with ant.design and typescript 
 
     useEffect(() => {
-        if (match.params.id) {
-          loadActivity(match.params.id).then(
-            () => initialFormState && setActivity(initialFormState)
-          )
+        if (match.params.id && activity.id.length === 0) {
+            loadActivity(match.params.id).then(
+                () => initialFormState && setActivity(initialFormState)
+            )
         }
-      },[]);  
-  
-    const [activity, setActivity] = useState<IActivity>({
-      id: '',
-      title: '',
-      category: '',
-      description: '',
-      date: '',
-      city: '',
-      venue: ''
-    });
-  
- 
+        return () => {
+            clearActivity()
+        }
+    }, [loadActivity, clearActivity, match.params.id, initialFormState, activity.id.length]);
+
     const onFinish = (values: any) => {
         if (activity.id.length === 0) {
             let newActivity = {
                 ...activity,
                 id: uuid()
             }
-            createActivity(newActivity);
+            createActivity(newActivity).then(() => history.push(`/activities/${newActivity.id}`));
         } else {
-            editActivity(activity);
+            editActivity(activity).then(() => history.push(`/activities/${activity.id}`));
         }
     };
 
