@@ -13,8 +13,6 @@ interface DetailParams {
 
 const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match }) => {
 
-    console.log(match.params.id)
-
     const layout = {
         labelCol: { span: 8 },
         wrapperCol: { span: 16 },
@@ -34,13 +32,14 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match }) =>
       cancelFormOpen
     } = activityStore;
 
+    //this should be filling out the form with the info for the activity being edited 
+    //but its not. its seems to be a problem with ant.design and typescript 
+
     useEffect(() => {
         if (match.params.id) {
           loadActivity(match.params.id).then(
             () => initialFormState && setActivity(initialFormState)
-          ).catch(err => {
-              console.log(err)
-          });
+          )
         }
       },[]);  
   
@@ -78,7 +77,6 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match }) =>
 
     return (
         <Card style={{ margin: ' 15px 30px', width: '90%' }}>
-            {console.log(activity)}
             <Form
                 {...layout}
                 name="basic"
