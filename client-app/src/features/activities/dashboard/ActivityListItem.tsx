@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import ActivityStore from '../../../app/stores/activityStore';
 import { Link } from 'react-router-dom';
 import { IActivity } from '../../../app/models/activity';
-import { FieldTimeOutlined, CompassOutlined, UserOutlined } from '@ant-design/icons';
+import { ClockCircleFilled, EnvironmentFilled} from '@ant-design/icons';
 import styled from 'styled-components';
 
 const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
@@ -23,13 +23,13 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
             <Row>
                 <Col span={8}>
                     <Row align='middle'>
-                        <FieldTimeOutlined style={{ marginRight: "10px" }} />
+                        <ClockCircleFilled style={{ marginRight: "10px", fontSize: 20 }} />
                         <h4>{activity.date}</h4>
                     </Row>
                 </Col>
                 <Col span={16}>
                     <Row align='middle'>
-                        <CompassOutlined style={{ marginRight: "10px" }} />
+                        <EnvironmentFilled style={{ marginRight: "10px", fontSize: 20 }} />
                         <h4>{activity.venue}, {activity.city}</h4>
                     </Row>
                 </Col>

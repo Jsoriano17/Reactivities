@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Row, Col } from 'antd';
 import ActivityList from './ActivityList';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
 import ActivityStore from '../../../app/stores/activityStore';
 import LoadingComponent from '../../../app/layout/LoadingComponent';

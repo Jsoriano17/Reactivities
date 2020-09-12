@@ -1,5 +1,5 @@
 import React, { useState, FormEvent, useContext, useEffect } from 'react';
-import { Form, Input, Button, Card } from 'antd';
+import { Form, Input, Button, Card, Row, Col } from 'antd';
 import styled from 'styled-components';
 import { IActivity } from '../../../app/models/activity';
 import { v4 as uuid } from 'uuid';
@@ -79,81 +79,85 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match, hist
     }
 
     return (
-        <Card style={{ margin: ' 15px 30px', width: '90%' }}>
-            <Form
-                {...layout}
-                name="basic"
-                initialValues={{
-                    ["Title"]: activity.title,
-                    ["Description"]: activity.description,
-                    ["Category"]: activity.category,
-                    ["Date"]: activity.date,
-                    ["City"]: activity.city,
-                    ["Venue"]: activity.venue,
-                }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-            >
-                <Form.Item
-                    label="Title"
-                    name="Title"
-                    rules={[{ required: true, message: 'Please input a title' }]}
-                >
-                    <Input name="title" onChange={handleChange} />
-                </Form.Item>
+        <Row>
+            <Col span={12}>
+                <Card style={{ margin: ' 15px 30px', width: '90%' }}>
+                    <Form
+                        {...layout}
+                        name="basic"
+                        initialValues={{
+                            ["Title"]: activity.title,
+                            ["Description"]: activity.description,
+                            ["Category"]: activity.category,
+                            ["Date"]: activity.date,
+                            ["City"]: activity.city,
+                            ["Venue"]: activity.venue,
+                        }}
+                        onFinish={onFinish}
+                        onFinishFailed={onFinishFailed}
+                    >
+                        <Form.Item
+                            label="Title"
+                            name="Title"
+                            rules={[{ required: true, message: 'Please input a title' }]}
+                        >
+                            <Input name="title" onChange={handleChange} />
+                        </Form.Item>
 
-                <Form.Item
-                    label="Description"
-                    name="Description"
-                    rules={[{ required: true, message: 'Please input a description' }]}
-                >
-                    <Input.TextArea name="description" onChange={handleChange} />
-                </Form.Item>
+                        <Form.Item
+                            label="Description"
+                            name="Description"
+                            rules={[{ required: true, message: 'Please input a description' }]}
+                        >
+                            <Input.TextArea name="description" onChange={handleChange} />
+                        </Form.Item>
 
-                <Form.Item
-                    label="Category"
-                    name="Category"
-                    rules={[{ required: true, message: 'Please input a category' }]}
-                >
-                    <Input name="category" onChange={handleChange} />
-                </Form.Item>
+                        <Form.Item
+                            label="Category"
+                            name="Category"
+                            rules={[{ required: true, message: 'Please input a category' }]}
+                        >
+                            <Input name="category" onChange={handleChange} />
+                        </Form.Item>
 
-                <Form.Item
-                    label="Date"
-                    name="Date"
-                    rules={[{ required: true, message: 'Please input a date' }]}
-                >
-                    <Input name='date' onChange={handleChange} />
-                </Form.Item>
+                        <Form.Item
+                            label="Date"
+                            name="Date"
+                            rules={[{ required: true, message: 'Please input a date' }]}
+                        >
+                            <Input name='date' onChange={handleChange} />
+                        </Form.Item>
 
-                <Form.Item
-                    label="City"
-                    name="City"
-                    rules={[{ required: true, message: 'Please input your city' }]}
-                >
-                    <Input name="city" onChange={handleChange} />
-                </Form.Item>
+                        <Form.Item
+                            label="City"
+                            name="City"
+                            rules={[{ required: true, message: 'Please input your city' }]}
+                        >
+                            <Input name="city" onChange={handleChange} />
+                        </Form.Item>
 
-                <Form.Item
-                    label="Venue"
-                    name="Venue"
-                    rules={[{ required: true, message: 'Please input a venue' }]}
-                >
-                    <Input name="venue" onChange={handleChange} />
-                </Form.Item>
+                        <Form.Item
+                            label="Venue"
+                            name="Venue"
+                            rules={[{ required: true, message: 'Please input a venue' }]}
+                        >
+                            <Input name="venue" onChange={handleChange} />
+                        </Form.Item>
 
-                <Form.Item {...tailLayout}>
-                    <Component>
-                        <Button onClick={() => history.push('/activities')} style={{ margin: '0 10px' }} type="default">
-                            Cancel
+                        <Form.Item {...tailLayout}>
+                            <Component>
+                                <Button onClick={() => history.push('/activities')} style={{ margin: '0 10px' }} type="default">
+                                    Cancel
                     </Button>
-                        <Button loading={submitting} style={{ margin: '0 10px' }} type="primary" htmlType="submit">
-                            Submit
+                                <Button loading={submitting} style={{ margin: '0 10px' }} type="primary" htmlType="submit">
+                                    Submit
                     </Button>
-                    </Component>
-                </Form.Item>
-            </Form>
-        </Card>
+                            </Component>
+                        </Form.Item>
+                    </Form>
+                </Card>
+            </Col>
+        </Row>
     )
 }
 export default observer(ActivityForm);

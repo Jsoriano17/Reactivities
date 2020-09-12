@@ -1,10 +1,14 @@
 import React, { useContext, useEffect } from 'react';
-import { Card } from 'antd';
-import { Radio } from 'antd';
+import { Card, Col, Row } from 'antd';
 import ActivityStore from '../../../app/stores/activityStore';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
+import ActivityDetailHeader from './ActivitiyDetailHeader';
+import ActivityDetailInfo from './ActivitiyDetailInfo';
+import ActivityDetailChat from './ActivityDetailChat';
+import ActivityDetailSidebar from './ActivityDetailSidebar';
+import styled from 'styled-components';
 
 const { Meta } = Card;
 
@@ -12,7 +16,7 @@ interface DetailParams {
     id: string;
 }
 
-const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ({ match, history }) => {
+const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ({ match }) => {
     const activityStore = useContext(ActivityStore);
     const { activity, loadActivity, loadingInitial } = activityStore;
 
@@ -23,21 +27,24 @@ const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ({ match, h
     if (loadingInitial || !activity) return <LoadingComponent content='loading activity...' />
 
     return (
-        <Card style={{ margin: ' 15px 30px', width: '90%' }}
-            cover={<img alt="placeholder" src={`/assets/categoryImages/${activity!.category}.jpg`} />}
-        >
-            <Meta title={activity!.title} description={activity!.date} />
-            <p>{activity!.description}</p>
-            <Radio.Group style={{ display: 'flex', justifyContent: 'center' }}>
-                <Link to={`/manage/${activity.id}`} style={{ width: '100%', textAlign: 'center' }}>
-                    <Radio.Button style={{ width: '100%', textAlign: 'center' }}>Edit</Radio.Button>
-                </Link>
-                <Radio.Button onClick={() => history.push('/activities')} style={{ width: '100%', textAlign: 'center' }} >Cancel</Radio.Button>
-            </Radio.Group>
-        </Card>
-
+        <Component>
+            <Row>
+                <Col span={17}>
+                    <ActivityDetailHeader activity={activity} />
+                    <ActivityDetailInfo activity={activity} />
+                    <ActivityDetailChat />
+                </Col>
+                <Col span={7}>
+                    <ActivityDetailSidebar />
+                </Col>
+            </Row>
+        </Component>
     )
 }
 
 export default observer(ActivityDetails);
+
+const Component = styled.div`
+margin: 20px 4%;
+`
 
