@@ -1,19 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { List, Button, Col, Row, Divider } from 'antd';
 import { observer } from 'mobx-react-lite';
-import ActivityStore from '../../../app/stores/activityStore';
 import { Link } from 'react-router-dom';
 import { IActivity } from '../../../app/models/activity';
 import { ClockCircleFilled, EnvironmentFilled} from '@ant-design/icons';
 import styled from 'styled-components';
 
 const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
-    const activityStore = useContext(ActivityStore)
-    const { deleteActivity, submitting, target } = activityStore;
     return (
         <List.Item>
             <List.Item.Meta
-                avatar={<img src='/assets/user.png' width="80px" height="80px" style={{ borderRadius: '50%' }} />}
+                avatar={<img src='/assets/user.png' width="80px" height="80px" style={{ borderRadius: '50%' }} alt='user'/>}
                 title={<h2>{activity.title}</h2>}
                 description="Hosted by Bob"
             />

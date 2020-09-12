@@ -1,12 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Button } from 'antd';
 
 const HomePage = () => {
     return (
         <Container>
-            <h1>HomePage</h1>
-            <h3>go to <Link to='/activities'>activities</Link></h3>
+            <StyledDiv>
+                <StyledDiv2>
+                    <img src="/assets/logo-black.png" alt="logo" width="60px" height="60px" />
+                    <h1 style={{ fontSize: 60 }}>Reactivities</h1>
+                </StyledDiv2>
+                <h3 style={{ fontSize: 20 }}>Welcome to Reactivities</h3>
+                <Link to='/activities'>
+                    <Button>Take me to the activities!</Button>
+                </Link>
+            </StyledDiv>
         </Container>
     )
 }
@@ -14,5 +23,21 @@ const HomePage = () => {
 export default HomePage;
 
 const Container = styled.div`
-    margin: 100px 35px;
+position: fixed;
+top: 50%;
+left: 50%;
+margin-top: -100px;
+margin-left: -160px;
+`
+
+const StyledDiv = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center; 
+align-items: center;
+`
+const StyledDiv2 = styled.div`
+display: flex;
+flex-direction: row;
+align-items: baseline;
 `

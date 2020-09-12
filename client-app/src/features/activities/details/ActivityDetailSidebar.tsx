@@ -1,7 +1,6 @@
-import { Divider, Row, Col, Button, List, Badge } from 'antd';
+import { List, Badge } from 'antd';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const ActivityDetailSidebar = () => {
     return (
@@ -10,7 +9,7 @@ const ActivityDetailSidebar = () => {
                 <List.Item>
 
                     <List.Item.Meta
-                        avatar={<img src='/assets/user.png' width="60px" height="60px" />}
+                        avatar={<img src='/assets/user.png' width="60px" height="60px" alt='user' />}
                         title={<h2>BoB</h2>}
                         description="Following"
                     />
@@ -19,14 +18,14 @@ const ActivityDetailSidebar = () => {
             </Badge.Ribbon>
             <List.Item>
                 <List.Item.Meta
-                    avatar={<img src='/assets/user.png' width="60px" height="60px" />}
+                    avatar={<img src='/assets/user.png' width="60px" height="60px" alt='user'/>}
                     title={<h2>Tom</h2>}
                     description="Following"
                 />
             </List.Item >
             <List.Item>
                 <List.Item.Meta
-                    avatar={<img src='/assets/user.png' width="60px" height="60px" />}
+                    avatar={<img src='/assets/user.png' width="60px" height="60px" alt='user'/>}
                     title={<h2>Sally</h2>}
                     description="Following"
                 />

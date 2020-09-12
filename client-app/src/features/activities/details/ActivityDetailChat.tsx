@@ -1,5 +1,5 @@
 import React from 'react';
-import { Comment, Avatar, Button, Form, List } from 'antd';
+import { Comment, Avatar, Button, Form} from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 
 
@@ -8,7 +8,7 @@ const ActivityDetailChat = () => {
     const ExampleComment = ({ children }: any) => (
         <Comment
             actions={[<span key="comment-nested-reply-to">Reply to</span>]}
-            author={<a>Han Solo</a>}
+            author={<p>Han Solo</p>}
             avatar={
                 <Avatar
                     src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
@@ -26,14 +26,6 @@ const ActivityDetailChat = () => {
         </Comment>
     );
 
-    const CommentList = ({ comments }: any) => (
-        <List
-            dataSource={comments}
-            header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
-            itemLayout="horizontal"
-        />
-    );
-
     const Editor = ({ onChange, onSubmit, submitting, value }: any) => (
         <>
             <Form.Item>
@@ -47,7 +39,7 @@ const ActivityDetailChat = () => {
         </>
     );
     return (
-        <div style={{width: 750}}>
+        <div style={{ width: 750 }}>
             <ExampleComment>
                 <ExampleComment>
                     <ExampleComment />

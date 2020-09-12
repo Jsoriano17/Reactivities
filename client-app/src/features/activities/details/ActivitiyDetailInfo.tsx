@@ -1,4 +1,4 @@
-import { Button, List } from 'antd';
+import { List } from 'antd';
 import React from 'react';
 import { IActivity } from '../../../app/models/activity';
 import { CalendarFilled, EnvironmentFilled, InfoCircleFilled  } from '@ant-design/icons';

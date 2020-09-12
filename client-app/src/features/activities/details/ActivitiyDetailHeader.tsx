@@ -1,4 +1,4 @@
-import { Button, Card, Col, Divider, Row } from 'antd';
+import { Button, Card, Col, Row } from 'antd';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import styled from 'styled-components';

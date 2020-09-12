@@ -1,16 +1,14 @@
 import React, { useContext, useEffect } from 'react';
-import { Card, Col, Row } from 'antd';
+import { Col, Row } from 'antd';
 import ActivityStore from '../../../app/stores/activityStore';
 import { observer } from 'mobx-react-lite';
-import { RouteComponentProps, Link } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 import ActivityDetailHeader from './ActivitiyDetailHeader';
 import ActivityDetailInfo from './ActivitiyDetailInfo';
 import ActivityDetailChat from './ActivityDetailChat';
 import ActivityDetailSidebar from './ActivityDetailSidebar';
 import styled from 'styled-components';
-
-const { Meta } = Card;
 
 interface DetailParams {
     id: string;
