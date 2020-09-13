@@ -23,21 +23,21 @@ const HomePage = () => {
 export default HomePage;
 
 const Container = styled.div`
-position: fixed;
-top: 50%;
-left: 50%;
-margin-top: -100px;
-margin-left: -160px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -160px;
 `
 
 const StyledDiv = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center; 
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
 `
 const StyledDiv2 = styled.div`
-display: flex;
-flex-direction: row;
-align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 `
