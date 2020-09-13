@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "MP/OtQIcVfUVwK2NfzYDHTfjUg2BPSgtc+cnGP/kXOYq6UwEz1UNPW8uiI6gCU/hpDTml5d3cS5CAzvew4yf1w==",
+  "dgSpecHash": "jk3rECtFEqX3TNW6AWoCgx24aQFOR3mNdg2erzm6cX5jV/3Mbju/eZw6Q8iHU6uMsIhHe/Tfdig0b67un++hHQ==",
   "success": true,
   "projectFilePath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/API/API.csproj",
   "expectedPackageFiles": [
+    "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation/8.5.1/fluentvalidation.8.5.1.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation.aspnetcore/8.5.1/fluentvalidation.aspnetcore.8.5.1.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation.dependencyinjectionextensions/8.5.1/fluentvalidation.dependencyinjectionextensions.8.5.1.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/mediatr/8.1.0/mediatr.8.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/8.1.0/mediatr.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",

@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EeXAvAuL0hsGS3bTiM7SJBpVexdv717sJD1YvHRqftlx2uEN5DaFkJI4JiTbEsQQ9C+ijOWxWy06XvcSb12RFQ==",
+  "dgSpecHash": "2hBodSvILtgPFIfvexz4DiSe1y26yY8X/K9zhfAwI5TvK+R4sobLtI2rWPxlj0duKkN62fGp+0KEIUYP7PqsPw==",
   "success": true,
   "projectFilePath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Application/Application.csproj",
   "expectedPackageFiles": [
+    "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation/8.5.1/fluentvalidation.8.5.1.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation.aspnetcore/8.5.1/fluentvalidation.aspnetcore.8.5.1.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation.dependencyinjectionextensions/8.5.1/fluentvalidation.dependencyinjectionextensions.8.5.1.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/mediatr/8.1.0/mediatr.8.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/8.1.0/mediatr.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
@@ -31,17 +34,16 @@
     "/Users/SomeWeirdWizard/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.2/sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/sqlitepclraw.core/2.0.2/sqlitepclraw.core.2.0.2.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.0.2/sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
-    "/Users/SomeWeirdWizard/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.0.2/sqlitepclraw.provider.e_sqlite3.2.0.2.nupkg.sha512",
-    "/Users/SomeWeirdWizard/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/sqlitepclraw.provider.dynamic_cdecl/2.0.2/sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.collections.immutable/1.7.0/system.collections.immutable.1.7.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.componentmodel.annotations/4.7.0/system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.diagnostics.diagnosticsource/4.7.0/system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
-    "/Users/SomeWeirdWizard/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.runtime.compilerservices.unsafe/4.7.1/system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.text.encodings.web/4.7.0/system.text.encodings.web.4.7.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.text.json/4.7.1/system.text.json.4.7.1.nupkg.sha512",
-    "/Users/SomeWeirdWizard/.nuget/packages/system.threading.tasks.extensions/4.5.2/system.threading.tasks.extensions.4.5.2.nupkg.sha512"
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.netcore.app.ref/3.0.0/microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
   ],
   "logs": []
 }

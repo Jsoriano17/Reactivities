@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "olEhcRYPojEkMvh2Nu3bO0Pt0TTwBo1mBZ4aAm//nYRncMmhEwSmHepyEFq167cMsKHtmWQ35lnh3v2eo4MfPg==",
+  "dgSpecHash": "x+pk5VobHIV5U/HnuMQnuR9DNenpIplalsAXxx9BaCoflZ1yqos5+mNFv/XB9mWlY5yLe/PdDvQExOVgeHIBXQ==",
   "success": true,
   "projectFilePath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/Domain/Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.netcore.app.ref/3.0.0/microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
