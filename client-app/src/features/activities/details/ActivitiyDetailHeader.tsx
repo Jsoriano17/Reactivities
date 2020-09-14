@@ -1,6 +1,7 @@
 import { Button, Card, Col, Row } from 'antd';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IActivity } from '../../../app/models/activity';
 
@@ -33,7 +34,9 @@ const ActivityDetailHeader: React.FC<{ activity: IActivity }> = ({ activity }) =
                     <Button type="primary" danger size='middle'>Cancel Attendance</Button>
                 </Col>
                 <Col span={4}>
-                    <Button size='middle'>Manage Event</Button>
+                    <Link to={`/manage/${activity.id}`}>
+                        <Button size='middle'>Manage Event</Button>
+                    </Link>
                 </Col>
             </Row>
         </Card>
