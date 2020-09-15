@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { IActivity } from '../../../app/models/activity';
 import { ClockCircleFilled, EnvironmentFilled} from '@ant-design/icons';
 import styled from 'styled-components';
+import {format} from 'date-fns';
 
 const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
     return (
@@ -21,7 +22,7 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
                 <Col span={8}>
                     <Row align='middle'>
                         <ClockCircleFilled style={{ marginRight: "10px", fontSize: 20 }} />
-                        <h4>{activity.date}</h4>
+                        <h4>{format(activity.date, 'h:mm a')}</h4>
                     </Row>
                 </Col>
                 <Col span={16}>

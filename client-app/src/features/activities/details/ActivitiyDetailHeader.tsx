@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IActivity } from '../../../app/models/activity';
+import {format} from 'date-fns';
 
 const ActivityDetailHeader: React.FC<{ activity: IActivity }> = ({ activity }) => {
     return (
@@ -19,7 +20,7 @@ const ActivityDetailHeader: React.FC<{ activity: IActivity }> = ({ activity }) =
                     />
                     <StyledDiv2>
                         <h1 style={{ color: 'white' }}>{activity.title}</h1>
-                        <h3 style={{ color: 'white' }}>{activity.date}</h3>
+                        <h3 style={{ color: 'white' }}>{format(activity.date, 'eeee do MMMM')}</h3>
                         <h4 style={{ color: 'white' }}>hosted by bob</h4>
                     </StyledDiv2>
 
