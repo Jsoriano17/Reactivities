@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EF3Mw5ks+efF7Mjf+dMsVTwuxGpPUdq4kaUEXPo4UQccmmS6kJImPU2WjBx3tlO14uJsVNWMyhfvJInqVcuxZA==",
+  "dgSpecHash": "E+/z2U5en5e/WPiSdbcdkzGJURaGPtITiw2s1FObHM7zefHzAJJRgLd+olMH5e/PcIWv4+Ueo04avsbUv2MAMw==",
   "success": true,
   "projectFilePath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/API/API.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation.dependencyinjectionextensions/8.5.1/fluentvalidation.dependencyinjectionextensions.8.5.1.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/mediatr/8.1.0/mediatr.8.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/8.1.0/mediatr.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.0.0/microsoft.aspnetcore.authentication.jwtbearer.3.0.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.aspnetcore.cryptography.internal/3.0.0/microsoft.aspnetcore.cryptography.internal.3.0.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/3.0.0/microsoft.aspnetcore.cryptography.keyderivation.3.0.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/3.0.0/microsoft.aspnetcore.identity.entityframeworkcore.3.0.0.nupkg.sha512",
@@ -43,6 +44,8 @@
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.extensions.primitives/3.1.3/microsoft.extensions.primitives.3.1.3.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.identitymodel.jsonwebtokens/6.7.1/microsoft.identitymodel.jsonwebtokens.6.7.1.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.identitymodel.logging/6.7.1/microsoft.identitymodel.logging.6.7.1.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.identitymodel.protocols/5.5.0/microsoft.identitymodel.protocols.5.5.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/5.5.0/microsoft.identitymodel.protocols.openidconnect.5.5.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.identitymodel.tokens/6.7.1/microsoft.identitymodel.tokens.6.7.1.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/newtonsoft.json/12.0.2/newtonsoft.json.12.0.2.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.2/sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
