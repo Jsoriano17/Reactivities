@@ -1,6 +1,9 @@
+import { configure } from "mobx";
 import { createContext } from "react";
 import ActivityStore from "./activityStore";
 import UserStore from "./userStore";
+
+configure({enforceActions: "always"});
 
 export class RootStore {
     activityStore: ActivityStore

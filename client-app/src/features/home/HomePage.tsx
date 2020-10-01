@@ -12,8 +12,8 @@ const HomePage = () => {
                     <h1 style={{ fontSize: 60 }}>Reactivities</h1>
                 </StyledDiv2>
                 <h3 style={{ fontSize: 20 }}>Welcome to Reactivities</h3>
-                <Link to='/activities'>
-                    <Button>Take me to the activities!</Button>
+                <Link to='/login'>
+                    <Button>login</Button>
                 </Link>
             </StyledDiv>
         </Container>
