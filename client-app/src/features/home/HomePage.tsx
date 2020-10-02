@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import { RootStoreContext } from '../../app/stores/rootStore';
 import LoginForm from '../user/LoginForm';
+import RegisterForm from '../user/RegisterForm';
 
 const HomePage = () => {
     const rootStore = useContext(RootStoreContext);
@@ -30,9 +31,9 @@ const HomePage = () => {
                             <h3 style={{ fontSize: 20 }}>Welcome To Reactivities</h3>
                             <StyledDiv2>
                                 <Button style={{marginRight: '10px'}} onClick={() => openModal(<LoginForm/>)}>Login</Button>
-                                <Link to='/register'>
-                                    <Button style={{marginLeft: '10px'}}>Sign Up</Button>
-                                </Link>
+                                
+                                    <Button style={{marginLeft: '10px'}} onClick={() => openModal(<RegisterForm/>)}>Sign Up</Button>
+                                
                             </StyledDiv2>
                         </>
                     )}
