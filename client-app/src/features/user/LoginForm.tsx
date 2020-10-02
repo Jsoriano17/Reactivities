@@ -1,11 +1,10 @@
 
 import { PageHeader } from 'antd';
-import Password from 'antd/lib/input/Password';
 import { FORM_ERROR } from 'final-form';
 import React, { useContext } from 'react';
 import { Form as FinalForm, Field } from 'react-final-form';
 import { combineValidators, isRequired } from 'revalidate';
-import { Button, Form, Label } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 import ErrorMessage from '../../app/common/form/ErrorMessage';
 import TextInput from '../../app/common/form/TextInput';
 import { IUserFormValues } from '../../app/models/user';

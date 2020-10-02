@@ -1,10 +1,10 @@
 import React, { Fragment, useContext } from 'react';
 import { Button, List } from 'antd';
 import { observer } from 'mobx-react-lite';
-import ActivityStore from '../../../app/stores/activityStore';
 import ActivityListItem from './ActivityListItem';
 import styled from 'styled-components';
 import { RootStoreContext } from '../../../app/stores/rootStore';
+import { format } from 'date-fns';
 
 const ActivityList: React.FC = () => {
     const rootStore = useContext(RootStoreContext);
@@ -14,7 +14,7 @@ const ActivityList: React.FC = () => {
             {activitiesByDate.map(([group, activities]) => (
                 <Fragment key={group}>
                     <Button type="primary">
-                        {group}
+                        {format(new Date(group), 'eee do MMMM')}
                     </Button>
                     <Component>
                         <List

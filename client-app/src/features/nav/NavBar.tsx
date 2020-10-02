@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Menu, PageHeader, Button } from 'antd';
+import { Menu, PageHeader } from 'antd';
 import { ContactsOutlined } from '@ant-design/icons';
 import { PlusOutlined } from '@ant-design/icons';
 import { observer } from 'mobx-react-lite';
@@ -36,20 +36,21 @@ const NavBar: React.FC = () => {
                 <Menu.Item key="create" icon={<PlusOutlined />}>
                     <Link to='/createActivity'>Create Activity</Link>
                 </Menu.Item>
+
+                {user &&
+                    <Menu.Item key='account'>
+                        <SemanticMenu.Item position='right'>
+                            <Image avatar spaced='right' src={user.image || '/assets/user.png'} />
+                            <Dropdown pointing='top left' text={user.displayName}>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user' />
+                                    <Dropdown.Item onClick={logout} text='Logout' icon='power' />
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </SemanticMenu.Item>
+                    </Menu.Item>
+                }
             </Menu>
-            {user &&
-                <Container2>
-                    <SemanticMenu.Item position='right'>
-                        <Image avatar spaced='right' src={user.image || '/assets/user.png'} />
-                        <Dropdown pointing='top left' text={user.displayName}>
-                            <Dropdown.Menu>
-                                <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user' />
-                                <Dropdown.Item onClick={logout} text='Logout' icon='power' />
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </SemanticMenu.Item>
-                </Container2>
-            }
         </Container >
     )
 }
@@ -67,13 +68,6 @@ const Container = styled.div`
     right: 0;
     z-index: 1000;
     background: white;
-`
-const Container2 = styled.div`
-    display: flex; 
-    align-items: center;
-    flex-direction: row;
-    margin-right: 10%;
-    margin-left: 70px;
 `
 const StyledImg = styled.img`
     fontSize: 50px;

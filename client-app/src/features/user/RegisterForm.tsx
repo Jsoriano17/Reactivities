@@ -1,11 +1,10 @@
 
 import { PageHeader } from 'antd';
-import Password from 'antd/lib/input/Password';
 import { FORM_ERROR } from 'final-form';
 import React, { useContext } from 'react';
 import { Form as FinalForm, Field } from 'react-final-form';
 import { combineValidators, isRequired } from 'revalidate';
-import { Button, Form, Label } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 import ErrorMessage from '../../app/common/form/ErrorMessage';
 import TextInput from '../../app/common/form/TextInput';
 import { IUserFormValues } from '../../app/models/user';
@@ -27,7 +26,7 @@ const RegisterForm = () => {
             onSubmit={(values: IUserFormValues) => register(values).catch(error => ({
                 [FORM_ERROR]: error
             }))}
-            // validate={validate}
+            validate={validate}
             render={({ handleSubmit, submitting, submitError, invalid, pristine, dirtySinceLastSubmit }) => (
                 <Form onSubmit={handleSubmit} error>
                     <PageHeader title='Sign up to Reactivities' />
@@ -53,12 +52,12 @@ const RegisterForm = () => {
                         type='password'
                     />
                     {submitError && !dirtySinceLastSubmit && (
-                       <ErrorMessage error={submitError} text={JSON.stringify(submitError.data.errors)}/>)}
+                       <ErrorMessage error={submitError} text=''/>)}
                     <Button
                         disabled={invalid && !dirtySinceLastSubmit || pristine}
                         loading={submitting}
                         color='twitter'
-                        content='Login' />
+                        content='Sign Up' />
                 </Form>
             )}
         />

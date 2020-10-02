@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import { history } from '../..';
-import { register } from '../../serviceWorker';
 import { IActivity } from '../models/activity';
 import { IUser, IUserFormValues } from '../models/user';
 

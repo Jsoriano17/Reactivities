@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import { Col, Row } from 'antd';
-import ActivityStore from '../../../app/stores/activityStore';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router-dom';
 import LoadingComponent from '../../../app/layout/LoadingComponent';

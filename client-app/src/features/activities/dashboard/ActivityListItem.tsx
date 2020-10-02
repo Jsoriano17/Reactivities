@@ -20,16 +20,16 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
 
             <Row>
                 <Col span={8}>
-                    <Row align='middle'>
+                    <Container>
                         <ClockCircleFilled style={{ marginRight: "10px", fontSize: 20 }} />
-                        <h4>{format(activity.date, 'h:mm a')}</h4>
-                    </Row>
+                        <h4 style={{margin: 0}}>{format(activity.date, 'h:mm a')}</h4>
+                    </Container>
                 </Col>
                 <Col span={16}>
-                    <Row align='middle'>
+                    <Container>
                         <EnvironmentFilled style={{ marginRight: "10px", fontSize: 20 }} />
-                        <h4>{activity.venue}, {activity.city}</h4>
-                    </Row>
+                        <h4 style={{margin: 0}}>{activity.venue}, {activity.city}</h4>
+                    </Container>
                 </Col>
             </Row>
 
@@ -57,4 +57,9 @@ const StyledH4 = styled.h4`
     background: #f0f0f0;
     padding: 15px;
     border: 1px solid #d1d1d1;
+`
+const Container = styled.div`
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
 `
