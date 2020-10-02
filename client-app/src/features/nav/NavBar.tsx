@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Menu, PageHeader, Button } from 'antd';
 import { ContactsOutlined } from '@ant-design/icons';
 import { PlusOutlined } from '@ant-design/icons';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { RootStoreContext } from '../../app/stores/rootStore';
+import { Dropdown, Image, Menu as SemanticMenu } from 'semantic-ui-react';
 
 const NavBar: React.FC = () => {
+    const rootStore = useContext(RootStoreContext);
+    const { isLoggedIn, user } = rootStore.userStore;
     const [current, setCurrent] = useState(['activity']);
 
     const handleClick = (e: any) => {
@@ -29,10 +33,23 @@ const NavBar: React.FC = () => {
                 <Menu.Item key="activity" icon={<ContactsOutlined />}>
                     <Link to='/activities'>Activities</Link>
                 </Menu.Item>
+                <Menu.Item key="create" icon={<PlusOutlined />}>
+                    <Link to='/createActivity'>Create Activity</Link>
+                </Menu.Item>
             </Menu>
-            <Link to='/createActivity' style={{ margin: "0px 5%" }}>
-                <Button icon={<PlusOutlined />} type="primary">Create Activity</Button>
-            </Link>
+            {user &&
+                <Container2>
+                    <SemanticMenu.Item position='right'>
+                        <Image avatar spaced='right' src={user.image || '/assets/user.png'} />
+                        <Dropdown pointing='top left' text={user.displayName}>
+                            <Dropdown.Menu>
+                                <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user' />
+                                <Dropdown.Item text='Logout' icon='power' />
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </SemanticMenu.Item>
+                </Container2>
+            }
         </Container >
     )
 }
@@ -50,6 +67,10 @@ const Container = styled.div`
     right: 0;
     z-index: 1000;
     background: white;
+`
+const Container2 = styled.div`
+    margin-right: 10%;
+    margin-left: 70px;
 `
 const StyledImg = styled.img`
     fontSize: 50px;
