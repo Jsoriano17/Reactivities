@@ -9,14 +9,14 @@ import RegisterForm from '../user/RegisterForm';
 const HomePage = () => {
     const rootStore = useContext(RootStoreContext);
     const { isLoggedIn, user } = rootStore.userStore;
-    const {openModal} = rootStore.modalStore
+    const { openModal } = rootStore.modalStore
 
     return (
         <Container>
             <StyledDiv>
                 <StyledDiv2>
                     <img src="/assets/logo-black.png" alt="logo" width="60px" height="60px" />
-                    <h1 style={{ fontSize: 60 }}>Reactivities</h1>
+                    <h1 style={{ fontSize: 60,  margin: 0 }}>Reactivities</h1>
                 </StyledDiv2>
 
                 {isLoggedIn && user ? (
@@ -30,10 +30,8 @@ const HomePage = () => {
                         <>
                             <h3 style={{ fontSize: 20 }}>Welcome To Reactivities</h3>
                             <StyledDiv2>
-                                <Button style={{marginRight: '10px'}} onClick={() => openModal(<LoginForm/>)}>Login</Button>
-                                
-                                    <Button style={{marginLeft: '10px'}} onClick={() => openModal(<RegisterForm/>)}>Sign Up</Button>
-                                
+                                <Button style={{ marginRight: '10px' }} onClick={() => openModal(<LoginForm />)}>Login</Button>
+                                <Button style={{ marginLeft: '10px' }} onClick={() => openModal(<RegisterForm />)}>Sign Up</Button>
                             </StyledDiv2>
                         </>
                     )}
@@ -46,11 +44,12 @@ const HomePage = () => {
 export default HomePage;
 
 const Container = styled.div`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -160px;
+    height: 50%; 
+    width: 50%; 
+    overflow: auto; 
+    margin: auto; 
+    position: absolute; 
+    top: 0; left: 0; bottom: 0; right: 0;
 `
 
 const StyledDiv = styled.div`
@@ -62,5 +61,5 @@ const StyledDiv = styled.div`
 const StyledDiv2 = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
 `
