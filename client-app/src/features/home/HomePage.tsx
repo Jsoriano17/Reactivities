@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import { RootStoreContext } from '../../app/stores/rootStore';
+import LoginForm from '../user/LoginForm';
 
 const HomePage = () => {
     const rootStore = useContext(RootStoreContext);
     const { isLoggedIn, user } = rootStore.userStore;
+    const {openModal} = rootStore.modalStore
 
     return (
         <Container>
@@ -27,11 +29,9 @@ const HomePage = () => {
                         <>
                             <h3 style={{ fontSize: 20 }}>Welcome To Reactivities</h3>
                             <StyledDiv2>
-                                <Link to='/login'>
-                                    <Button>Login</Button>
-                                </Link>
+                                <Button style={{marginRight: '10px'}} onClick={() => openModal(<LoginForm/>)}>Login</Button>
                                 <Link to='/register'>
-                                    <Button>Sign Up</Button>
+                                    <Button style={{marginLeft: '10px'}}>Sign Up</Button>
                                 </Link>
                             </StyledDiv2>
                         </>

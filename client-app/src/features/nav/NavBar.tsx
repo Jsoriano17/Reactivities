@@ -10,7 +10,7 @@ import { Dropdown, Image, Menu as SemanticMenu } from 'semantic-ui-react';
 
 const NavBar: React.FC = () => {
     const rootStore = useContext(RootStoreContext);
-    const { isLoggedIn, user } = rootStore.userStore;
+    const { user, logout } = rootStore.userStore;
     const [current, setCurrent] = useState(['activity']);
 
     const handleClick = (e: any) => {
@@ -44,7 +44,7 @@ const NavBar: React.FC = () => {
                         <Dropdown pointing='top left' text={user.displayName}>
                             <Dropdown.Menu>
                                 <Dropdown.Item as={Link} to={`/profile/username`} text='My profile' icon='user' />
-                                <Dropdown.Item text='Logout' icon='power' />
+                                <Dropdown.Item onClick={logout} text='Logout' icon='power' />
                             </Dropdown.Menu>
                         </Dropdown>
                     </SemanticMenu.Item>
@@ -69,6 +69,9 @@ const Container = styled.div`
     background: white;
 `
 const Container2 = styled.div`
+    display: flex; 
+    align-items: center;
+    flex-direction: row;
     margin-right: 10%;
     margin-left: 70px;
 `

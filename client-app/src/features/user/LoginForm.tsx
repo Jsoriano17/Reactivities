@@ -1,10 +1,12 @@
 
+import { PageHeader } from 'antd';
 import Password from 'antd/lib/input/Password';
 import { FORM_ERROR } from 'final-form';
 import React, { useContext } from 'react';
 import { Form as FinalForm, Field } from 'react-final-form';
 import { combineValidators, isRequired } from 'revalidate';
 import { Button, Form, Label } from 'semantic-ui-react';
+import ErrorMessage from '../../app/common/form/ErrorMessage';
 import TextInput from '../../app/common/form/TextInput';
 import { IUserFormValues } from '../../app/models/user';
 import { RootStoreContext } from '../../app/stores/rootStore';
@@ -24,8 +26,9 @@ const LoginForm = () => {
                 [FORM_ERROR]: error
             }))}
             validate={validate}
-            render={({ handleSubmit, submitting, form, submitError, invalid, pristine, dirtySinceLastSubmit }) => (
-                <Form onSubmit={handleSubmit}>
+            render={({ handleSubmit, submitting, submitError, invalid, pristine, dirtySinceLastSubmit }) => (
+                <Form onSubmit={handleSubmit} error>
+                    <PageHeader title='Login to Reactivities' />
                     <Field
                         name='email'
                         component={TextInput}
@@ -38,11 +41,12 @@ const LoginForm = () => {
                         type='password'
                     />
                     {submitError && !dirtySinceLastSubmit && (
-                    <Label color='red' basic content={submitError.statusText}
-                     />)}
-                    <br />
-                    <Button disabled={invalid && !dirtySinceLastSubmit || pristine} loading={submitting} primary content='Login' />
-                    <pre>{JSON.stringify(form.getState(), null, 2)}</pre>
+                       <ErrorMessage error={submitError} text='Invalid username or password'/>)}
+                    <Button
+                        disabled={invalid && !dirtySinceLastSubmit || pristine}
+                        loading={submitting}
+                        color='twitter'
+                        content='Login' />
                 </Form>
             )}
         />
