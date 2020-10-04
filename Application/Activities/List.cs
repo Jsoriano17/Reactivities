@@ -20,10 +20,13 @@ namespace Application.Activities
                 _context = context;
             }
 
-            public async Task<List<Activity>> Handle(Query request, 
+            public async Task<List<Activity>> Handle(Query request,
             CancellationToken cancellationToken)
             {
-                var activities = await _context.Activities.ToListAsync();
+                var activities = await _context.Activities
+                    .Include(x => x.UserActivities)
+                    .ThenInclude(x => x.AppUser)
+                    .ToListAsync();
                 return activities;
             }
         }

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "E+/z2U5en5e/WPiSdbcdkzGJURaGPtITiw2s1FObHM7zefHzAJJRgLd+olMH5e/PcIWv4+Ueo04avsbUv2MAMw==",
+  "dgSpecHash": "jha9m4Y/gjV3qR8yUQMA+WLjknW47anAxHCTTCFp+frCGbUnmw9QQZwU8siaO8UBwHBfWnPfLLmXUEi1btEy2w==",
   "success": true,
   "projectFilePath": "/Users/SomeWeirdWizard/Desktop/C#-React/Reactivities/API/API.csproj",
   "expectedPackageFiles": [
+    "/Users/SomeWeirdWizard/.nuget/packages/automapper/8.1.1/automapper.8.1.1.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/6.1.1/automapper.extensions.microsoft.dependencyinjection.6.1.1.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation/8.5.1/fluentvalidation.8.5.1.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation.aspnetcore/8.5.1/fluentvalidation.aspnetcore.8.5.1.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/fluentvalidation.dependencyinjectionextensions/8.5.1/fluentvalidation.dependencyinjectionextensions.8.5.1.nupkg.sha512",
@@ -47,6 +49,8 @@
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.identitymodel.protocols/5.5.0/microsoft.identitymodel.protocols.5.5.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/5.5.0/microsoft.identitymodel.protocols.openidconnect.5.5.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/microsoft.identitymodel.tokens/6.7.1/microsoft.identitymodel.tokens.6.7.1.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/newtonsoft.json/12.0.2/newtonsoft.json.12.0.2.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.2/sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/sqlitepclraw.core/2.0.2/sqlitepclraw.core.2.0.2.nupkg.sha512",
@@ -56,9 +60,17 @@
     "/Users/SomeWeirdWizard/.nuget/packages/system.componentmodel.annotations/4.7.0/system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.diagnostics.diagnosticsource/4.7.0/system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.identitymodel.tokens.jwt/6.7.1/system.identitymodel.tokens.jwt.6.7.1.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/system.reflection.emit/4.3.0/system.reflection.emit.4.3.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
     "/Users/SomeWeirdWizard/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
-    "/Users/SomeWeirdWizard/.nuget/packages/system.text.json/4.7.1/system.text.json.4.7.1.nupkg.sha512"
+    "/Users/SomeWeirdWizard/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/system.text.json/4.7.1/system.text.json.4.7.1.nupkg.sha512",
+    "/Users/SomeWeirdWizard/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
