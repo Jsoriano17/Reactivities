@@ -6,6 +6,7 @@ import { IActivity } from '../../../app/models/activity';
 import { ClockCircleFilled, EnvironmentFilled} from '@ant-design/icons';
 import styled from 'styled-components';
 import {format} from 'date-fns';
+import { ActivityListItemAttendees } from './ActivityListItemAttendees';
 
 const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
     return (
@@ -35,7 +36,7 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
 
             <Divider />
 
-            <StyledH4>Attendees will go here</StyledH4>
+            <ActivityListItemAttendees attendees={activity.attendees}/>
 
             <Row style={{ marginTop: '30px' }}>
                 <Col span={22}>
