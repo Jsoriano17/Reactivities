@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IActivity } from '../../../app/models/activity';
-import {format} from 'date-fns';
+import { format } from 'date-fns';
 
 const ActivityDetailHeader: React.FC<{ activity: IActivity }> = ({ activity }) => {
     return (
@@ -27,19 +27,14 @@ const ActivityDetailHeader: React.FC<{ activity: IActivity }> = ({ activity }) =
                 </StyledDiv>
             }
         >
-            <Row>
-                <Col span={5}>
-                    <Button type="primary" size='middle'>Join Activity</Button>
-                </Col>
-                <Col span={15}>
-                    <Button type="primary" danger size='middle'>Cancel Attendance</Button>
-                </Col>
-                <Col span={4}>
-                    <Link to={`/manage/${activity.id}`}>
-                        <Button size='middle'>Manage Event</Button>
-                    </Link>
-                </Col>
-            </Row>
+
+            {activity.isHost ? (<Link to={`/manage/${activity.id}`}>
+                <Button size='middle'>Manage Event</Button>
+            </Link>) : activity.isGoing ? (
+                <Button type="primary" danger size='middle'>Cancel Attendance</Button>
+            ) : (
+                        <Button type="primary" size='middle'>Join Activity</Button>
+                    )}
         </Card>
     )
 }
