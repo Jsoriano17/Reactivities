@@ -2,6 +2,7 @@ import React from 'react';
 import { List, Badge } from 'antd';
 import { IAttendee } from '../../../app/models/activity';
 import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 
 interface IProps {
     attendees: IAttendee[]
@@ -44,4 +45,4 @@ const ActivityDetailSidebar: React.FC<IProps> = ({ attendees }) => {
     )
 }
 
-export default ActivityDetailSidebar; 
+export default observer(ActivityDetailSidebar); 
