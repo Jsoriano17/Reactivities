@@ -12,7 +12,7 @@ const ActivityDetailSidebar: React.FC<IProps> = ({ attendees }) => {
     return (
         <List bordered header={`${attendees.length} ${attendees.length === 1 ? 'Person' : 'People'} going`}>
             {attendees.map(attendee => {
-                if (attendee.isHost == true) {
+                if (attendee.isHost) {
                     return <Badge.Ribbon text='Host' color="orange">
                         <List.Item key={attendee.username}>
                             <List.Item.Meta
