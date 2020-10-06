@@ -65,11 +65,6 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
 
 export default observer(ActivityListItem);
 
-const StyledH4 = styled.h4`
-    background: #f0f0f0;
-    padding: 15px;
-    border: 1px solid #d1d1d1;
-`
 const Container = styled.div`
     display: flex; 
     flex-direction: row; 
