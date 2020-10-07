@@ -25,11 +25,13 @@ const NavBar: React.FC = () => {
             </Link>
             <PageHeader
                 className="site-page-header"
-                title="Reactivities"
+                title={ <Link to='/' style={{color: 'black'}}>
+                            Reactivities
+                        </Link>}
                 style={{ marginRight: "5%" }}
             />
 
-            <Menu onClick={handleClick} selectedKeys={current} mode="horizontal" style={{ width: "100%" }}>
+            < Menu onClick={handleClick} selectedKeys={current} mode="horizontal" style={{ width: "100%" }}>
                 <Menu.Item key="activity" icon={<ContactsOutlined />}>
                     <Link to='/activities'>Activities</Link>
                 </Menu.Item>
@@ -37,7 +39,8 @@ const NavBar: React.FC = () => {
                     <Link to='/createActivity'>Create Activity</Link>
                 </Menu.Item>
 
-                {user &&
+                {
+                    user &&
                     <Menu.Item key='account'>
                         <SemanticMenu.Item position='right'>
                             <Image avatar spaced='right' src={user.image || '/assets/user.png'} />
@@ -50,7 +53,7 @@ const NavBar: React.FC = () => {
                         </SemanticMenu.Item>
                     </Menu.Item>
                 }
-            </Menu>
+            </Menu >
         </Container >
     )
 }
