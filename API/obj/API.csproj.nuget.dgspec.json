@@ -261,6 +261,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.8.0, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.7.1, )"
