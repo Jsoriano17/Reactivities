@@ -25,9 +25,11 @@ const Container = styled.div`
     display: flex; 
     flex-direction: column;
     align-items: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -300px;
+    text-align: center;
+    height: 50%; 
+    width: 50%; 
+    overflow: auto; 
+    margin: auto; 
+    position: absolute; 
+    top: 0; left: 0; bottom: 0; right: 0;
 `

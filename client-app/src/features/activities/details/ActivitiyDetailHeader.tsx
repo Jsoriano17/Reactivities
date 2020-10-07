@@ -1,4 +1,4 @@
-import { Button, Card} from 'antd';
+import { Button, Card } from 'antd';
 import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -10,6 +10,8 @@ import { RootStoreContext } from '../../../app/stores/rootStore';
 const ActivityDetailHeader: React.FC<{ activity: IActivity }> = ({ activity }) => {
     const rootStore = useContext(RootStoreContext);
     const { attendActivity, cancelAttendance, loading } = rootStore.activityStore;
+    const host = activity.attendees.filter(x => x.isHost)[0];
+
     return (
         <Card
             style={{ width: 750 }}
@@ -24,7 +26,7 @@ const ActivityDetailHeader: React.FC<{ activity: IActivity }> = ({ activity }) =
                     <StyledDiv2>
                         <h1 style={{ color: 'white' }}>{activity.title}</h1>
                         <h3 style={{ color: 'white' }}>{format(activity.date, 'eeee do MMMM')}</h3>
-                        <h4 style={{ color: 'white' }}>hosted by bob</h4>
+                        <h4 style={{ color: 'white' }}><Link to={`/profiles/${host.username}`}>Hosted by {host.displayName}</Link></h4>
                     </StyledDiv2>
 
                 </StyledDiv>

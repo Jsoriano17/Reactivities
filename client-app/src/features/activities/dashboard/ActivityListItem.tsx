@@ -13,13 +13,13 @@ const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
     return (
         <List.Item>
             <List.Item.Meta
-                avatar={<img src={host.image || '/assets/user.png'} width="80px" height="80px" style={{ borderRadius: '50%' }} alt='user' />}
+                avatar={<img src={host.image || '/assets/user.png'} width="80px" height="80px" style={{ borderRadius: '50%', marginBottom: '3px'}} alt='user' />}
                 title={
                     <Link to={`/activities/${activity.id}`}>
                         <h2>{activity.title}</h2>
                     </Link>
                 }
-                description={`Hosted by ${host.displayName}`}
+            description={<Link to={`/profile/${host.username}`}>Hosted by {host.username}</Link>}
             />
             {activity.isHost &&
                 <Tag color="orange">You are hosting this activity</Tag>
