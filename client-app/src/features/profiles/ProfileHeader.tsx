@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { Avatar, Button, Col, Divider, List, Popover, Row, Statistic } from 'antd';
 import { UserOutlined, UsergroupAddOutlined, TeamOutlined } from '@ant-design/icons';
+import { IProfile } from '../../app/models/profile';
+import { observer } from 'mobx-react-lite';
 
+interface IProps {
+    profile: IProfile
+}
 
-const ProfileHeader = () => {
+const ProfileHeader: React.FC<IProps> = ({ profile }) => {
 
     const [buttonInfo, setButtonInfo] = useState({ text: 'Following', color: false })
 
@@ -18,10 +23,10 @@ const ProfileHeader = () => {
         <List.Item >
             <Row align='middle'>
                 <Col span={14}>
-                    <Avatar size={150} icon={<UserOutlined />} style={{ marginRight: '0px' }} />
+                    <Avatar size={150} src={profile.image || '/assets/user.png'} style={{ marginRight: '0px' }} />
                 </Col>
                 <Col span={10}>
-                    <h1>DisplayName</h1>
+                    <h1>{ProfileHeader.displayName}</h1>
                 </Col>
             </Row>
             <Row gutter={16} justify='center'>
@@ -45,4 +50,4 @@ const ProfileHeader = () => {
     )
 }
 
-export default ProfileHeader
+export default observer(ProfileHeader);
