@@ -23,10 +23,10 @@ const ProfileHeader: React.FC<IProps> = ({ profile }) => {
         <List.Item >
             <Row align='middle'>
                 <Col span={14}>
-                    <Avatar size={150} src={profile.image || '/assets/user.png'} style={{ marginRight: '0px' }} />
+                    <Avatar size={150} src={profile.image || '/assets/user.png'} style={{ marginRight: '80px' }} />
                 </Col>
                 <Col span={10}>
-                    <h1>{ProfileHeader.displayName}</h1>
+                    <h1>{profile.displayName}</h1>
                 </Col>
             </Row>
             <Row gutter={16} justify='center'>
