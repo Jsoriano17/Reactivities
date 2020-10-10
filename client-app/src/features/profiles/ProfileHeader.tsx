@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Col, Divider, List, Popover, Row, Statistic } from 'antd';
-import { UserOutlined, UsergroupAddOutlined, TeamOutlined } from '@ant-design/icons';
+import { Avatar, Button, Col, Divider, List, Row, Statistic } from 'antd';
+import { UsergroupAddOutlined, TeamOutlined } from '@ant-design/icons';
 import { IProfile } from '../../app/models/profile';
 import { observer } from 'mobx-react-lite';
 

@@ -8,9 +8,10 @@ import { observer } from 'mobx-react-lite';
 
 const ProfilePhotos = () => {
     const rootStore = useContext(RootStoreContext)
-    const { profile, isCurrentUser, uploadPhoto, uploadingPhoto, setMainPhoto, loading } = rootStore.profileStore;
+    const { profile, isCurrentUser, uploadPhoto, uploadingPhoto, setMainPhoto, loading, deletePhoto } = rootStore.profileStore;
     const [addPhotoMode, setAddPhotoMode] = useState(false);
     const [target, setTarget] = useState<string | undefined>(undefined);
+    const [deleteTarget, setDeleteTarget] = useState<string | undefined>(undefined);
 
     const handleUploadImage = (photo: Blob) => {
         uploadPhoto(photo).then(() => setAddPhotoMode(false))
@@ -48,7 +49,16 @@ const ProfilePhotos = () => {
                                                 type="primary">Main</Button>
                                         </Col>
                                         <Col span={12}>
-                                            <Button style={{ width: "100%" }} danger type="primary"><DeleteOutlined /></Button>
+                                            <Button
+                                                disabled={photo.isMain}
+                                                onClick={() => {
+                                                    deletePhoto(photo);
+                                                    setDeleteTarget(photo.id)
+                                                }}
+                                                loading={loading && deleteTarget === photo.id}
+                                                style={{ width: "100%" }}
+                                                danger
+                                                type="primary"><DeleteOutlined /></Button>
                                         </Col>
                                     </Row>}
                             </Card>
