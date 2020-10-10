@@ -14,6 +14,7 @@ export default class ProfileStore {
     @observable loadingProfile = true;
     @observable uploadingPhoto = false;
     @observable loading = false;
+    @observable deleteLoading = false;
 
     @computed get isCurrentUser() {
         if (this.rootStore.userStore.user && this.profile) {
@@ -82,17 +83,17 @@ export default class ProfileStore {
     }
 
     @action deletePhoto = async (photo: IPhoto) => {
-        this.loading = true;
+        this.deleteLoading = true;
         try {
             await agent.Profiles.deletePhoto(photo.id);
             runInAction(() => {
                 this.profile!.photos = this.profile!.photos.filter(a => a.id !== photo.id);
-                this.loading = false;
+                this.deleteLoading = false;
             })
         } catch (error) {
             toast.error("Problem deleting the photo");
             runInAction(() => {
-                this.loading = false;
+                this.deleteLoading = false;
             })
         }
     }
