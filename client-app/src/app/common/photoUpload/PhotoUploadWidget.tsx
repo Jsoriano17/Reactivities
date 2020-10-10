@@ -37,13 +37,13 @@ const PhotoUploadWidget: React.FC<IProps> = ({ loading, uploadPhoto }) => {
                     <p>STEP 3 - PREVIEW & UPLOAD</p>
                     {files.length > 0 &&
                         <>
-                            <div className='img-preview' style={{ minHeight: '200px', overflow: 'hidden' }} />
+                            <div className='img-preview' style={{ minHeight: '200px', overflow: 'hidden', marginLeft: 'auto', marginRight: 'auto'}} />
                             <Row>
                                 <Col span={12}>
-                                    <Button loading={loading} onClick={() => uploadPhoto(image!)} style={{ width: "100%" }} type="primary"><CheckOutlined /></Button>
+                                    <Button loading={loading} onClick={() => uploadPhoto(image!)} style={{ width: "100px", marginLeft:'35%' }} type="primary"><CheckOutlined /></Button>
                                 </Col>
                                 <Col span={12}>
-                                    <Button disabled={loading} onClick={() => setFiles([])} style={{ width: "100%" }} danger type="primary"><CloseOutlined /></Button>
+                                    <Button disabled={loading} onClick={() => setFiles([])} style={{ width: "100px", marginRight:'35%' }} danger type="primary"><CloseOutlined /></Button>
                                 </Col>
                             </Row>
                         </>}
