@@ -2,9 +2,11 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Col, Row } from 'antd';
 import PhotoWidgetDropzone from './PhotoWidgetDropzone';
+import PhotoWidgetCropper from './PhotoWidgetCropper';
 
 const PhotoUploadWidget = () => {
     const [files, setFiles] = useState<any[]>([]);
+    const [image, setImage] = useState<Blob | null>(null)
 
     useEffect(() => {
         return () => {
@@ -21,11 +23,13 @@ const PhotoUploadWidget = () => {
                 </Col>
                 <Col span={8}>
                     <p>STEP 2 - RESIZE IMAGE</p>
+                    {files.length > 0 &&
+                    <PhotoWidgetCropper setImage={setImage} imagePreview={files[0].preview}/>}
                 </Col>
                 <Col span={8}>
                     <p>STEP 3 - PREVIEW & UPLOAD</p>
                     {files.length > 0 &&
-                        <img src={files[0].preview} />}
+                        <div className='img-preview' style={{minHeight: '200px', overflow: 'hidden'}}/>}
                 </Col>
             </Row>
         </Fragment>
