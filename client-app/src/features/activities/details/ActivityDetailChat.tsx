@@ -14,11 +14,11 @@ const ActivityDetailChat = () => {
     const { user } = rootStore.userStore;
 
     useEffect(() => {
-        createHubConnection();
+        createHubConnection(activity!.id);
         return () => {
             stopHubConnection();
         }
-    }, [createHubConnection, stopHubConnection])
+    }, [createHubConnection, stopHubConnection, activity])
 
     return (
         <div style={{ width: 750 }}>
