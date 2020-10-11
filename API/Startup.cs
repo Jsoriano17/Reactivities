@@ -52,7 +52,8 @@ namespace API
             {
                 opt.AddPolicy("CorsPolicy", Policy =>
                 {
-                    Policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                    Policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000")
+                    .AllowCredentials();
                 });
             });
             services.AddMediatR(typeof(List.Handler).Assembly);

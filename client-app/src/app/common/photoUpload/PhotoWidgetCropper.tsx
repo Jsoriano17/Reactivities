@@ -11,12 +11,17 @@ const PhotoWidgetCropper: React.FC<IProps> = ({ setImage, imagePreview }) => {
     const cropper = useRef<Cropper>(null);
 
     const cropImage = () => {
-        if (cropper.current && typeof cropper.current.getCroppedCanvas() === 'undefined') {
+        if (
+            cropper.current &&
+            typeof cropper.current.getCroppedCanvas() === 'undefined'
+        ) {
             return;
         }
-        cropper && cropper.current && cropper.current.getCroppedCanvas().toBlob((blob: any) => {
-            setImage(blob);
-        }, 'image/jpeg');
+        cropper &&
+            cropper.current &&
+            cropper.current.getCroppedCanvas().toBlob((blob: any) => {
+                setImage(blob);
+            }, 'image/jpeg');
     };
 
     return (

@@ -1,69 +1,84 @@
-import React from 'react';
-import { Comment, Avatar, Button, Form} from 'antd';
-import TextArea from 'antd/lib/input/TextArea';
-
+import React, { useContext, useEffect } from 'react';
+import { Comment, Avatar, Tooltip } from 'antd';
+import { RootStoreContext } from '../../../app/stores/rootStore';
+import { Form as FinalForm, Field } from 'react-final-form';
+import { Link, RouteComponentProps } from 'react-router-dom';
+import TextAreaInput from '../../../app/common/form/TextAreaInput';
+import { observer } from 'mobx-react-lite';
+import { Form, Button } from 'semantic-ui-react';
+import { formatDistance } from 'date-fns';
 
 const ActivityDetailChat = () => {
+    const rootStore = useContext(RootStoreContext);
+    const { createHubConnection, stopHubConnection, addComment, activity } = rootStore.activityStore;
+    const { user } = rootStore.userStore;
 
-    const ExampleComment = ({ children }: any) => (
-        <Comment
-            actions={[<span key="comment-nested-reply-to">Reply to</span>]}
-            author={<p>Han Solo</p>}
-            avatar={
-                <Avatar
-                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                    alt="Han Solo"
-                />
-            }
-            content={
-                <p>
-                    We supply a series of design principles, practical patterns and high quality design
-                    resources (Sketch and Axure).
-            </p>
-            }
-        >
-            {children}
-        </Comment>
-    );
+    useEffect(() => {
+        createHubConnection();
+        return () => {
+            stopHubConnection();
+        }
+    }, [createHubConnection, stopHubConnection])
 
-    const Editor = ({ onChange, onSubmit, submitting, value }: any) => (
-        <>
-            <Form.Item>
-                <TextArea rows={4} onChange={onChange} value={value} />
-            </Form.Item>
-            <Form.Item>
-                <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
-                    Add Comment
-            </Button>
-            </Form.Item>
-        </>
-    );
     return (
         <div style={{ width: 750 }}>
-            <ExampleComment>
-                <ExampleComment>
-                    <ExampleComment />
-                    <ExampleComment />
-                </ExampleComment>
-            </ExampleComment>
-
-            <>
+            <h2>Activity Comments</h2>
+            {activity && activity.comments && activity.comments.map((comment) => (
                 <Comment
+                    key={comment.id}
+                    // actions={[<span key="comment-nested-reply-to">Reply to</span>]}
+                    author={<Link to={`/profile/${comment.username}`}>{comment.displayName}</Link>}
                     avatar={
                         <Avatar
-                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                            alt="Han Solo"
+                            src={comment.image || '/assets/user.png'}
+                            alt="user image"
                         />
                     }
                     content={
-                        <Editor
-                        />
+                        <p>{comment.body}</p>
                     }
-                />
-            </>
+                    datetime={formatDistance(new Date(comment.createdAt), new Date())}
+                ></Comment>
+            ))}
+
+            <FinalForm
+                onSubmit={addComment}
+                render={({ handleSubmit, submitting, form }) => (
+                    <Comment
+                        avatar={
+                            <Avatar
+                                src={user!.image ||'/assets/user.png'}
+                                alt="user image"
+                            />
+                        }
+                        content={
+                            <>
+                                <Form onSubmit={() => handleSubmit()!.then(() => form.reset())}>
+                                    <Field
+                                        name='body'
+                                        component={TextAreaInput}
+                                        rows={2}
+                                        placeholder='Add your comment'
+                                    />
+                                    <Button
+                                        content="Add Comment"
+                                        labelPosition='left'
+                                        icon='edit'
+                                        primary
+                                        loading={submitting}
+                                    />
+                                </Form>
+                            </>
+                        }
+                    />
+
+                )}
+            />
+
+
         </div>
 
     )
 }
 
-export default ActivityDetailChat; 
+export default observer(ActivityDetailChat); 
