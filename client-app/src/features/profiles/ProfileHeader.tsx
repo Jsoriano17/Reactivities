@@ -31,10 +31,10 @@ const ProfileHeader: React.FC<IProps> = ({ profile }) => {
             </Row>
             <Row gutter={16} justify='center'>
                 <Col span={12}>
-                    <Statistic valueStyle={{ fontSize: '40px' }} title="Followers" value={5} prefix={<TeamOutlined />} />
+                    <Statistic valueStyle={{ fontSize: '40px' }} title="Followers" value={profile.followersCount} prefix={<TeamOutlined />} />
                 </Col>
                 <Col span={12}>
-                    <Statistic valueStyle={{ fontSize: '40px' }} title="Following" value={42} prefix={<UsergroupAddOutlined />} />
+                    <Statistic valueStyle={{ fontSize: '40px' }} title="Following" value={profile.followingCount} prefix={<UsergroupAddOutlined />} />
                 </Col>
                 <Divider style={{ margin: '0px 0' }} />
                 <Button

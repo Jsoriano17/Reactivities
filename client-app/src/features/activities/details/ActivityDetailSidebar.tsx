@@ -23,7 +23,7 @@ const ActivityDetailSidebar: React.FC<IProps> = ({ attendees }) => {
                                         <h2>{attendee.displayName}</h2>
                                     </Link>
                                 }
-                                description="Following"
+                                description={attendee.following && "Following"}
                             />
                         </List.Item >
                     </Badge.Ribbon>
@@ -36,7 +36,9 @@ const ActivityDetailSidebar: React.FC<IProps> = ({ attendees }) => {
                                     <h2>{attendee.displayName}</h2>
                                 </Link>
                             }
-                            description="Following"
+                            
+                            description={attendee.following && "Following"}
+                            
                         />
                     </List.Item >
                 }
