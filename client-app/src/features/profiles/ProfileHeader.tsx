@@ -5,18 +5,31 @@ import { IProfile } from '../../app/models/profile';
 import { observer } from 'mobx-react-lite';
 
 interface IProps {
-    profile: IProfile
+    profile: IProfile,
+    isCurrentUser: boolean,
+    loading: boolean,
+    follow: (username: string) => void;
+    unfollow: (username: string) => void;
 }
 
-const ProfileHeader: React.FC<IProps> = ({ profile }) => {
+const ProfileHeader: React.FC<IProps> = ({ profile, follow, unfollow, isCurrentUser, loading }) => {
 
-    const [buttonInfo, setButtonInfo] = useState({ text: 'Following', color: false })
+    const [buttonInfo, setButtonInfo] = useState({text: profile.following ? 'Following' : 'Not following', color: false })
 
     const changeButton = () => {
-        setButtonInfo({ text: 'Unfollow', color: true })
+        if (profile.following) {
+            setButtonInfo({text: 'Unfollow', color: true })
+        } else {
+            setButtonInfo({text: 'Follow', color: true })
+        }
+        
     }
     const changeButtonBack = () => {
-        setButtonInfo({ text: 'Following', color: false })
+        if (profile.following) {
+            setButtonInfo({text: 'Following', color: false })
+        } else {
+            setButtonInfo({text: 'Not following', color: false })
+        }
     }
 
     return (
@@ -29,7 +42,7 @@ const ProfileHeader: React.FC<IProps> = ({ profile }) => {
                     <h1>{profile.displayName}</h1>
                 </Col>
             </Row>
-            <Row gutter={16} justify='center'>
+            <Row gutter={16} justify='center' style={{maxWidth: '220px'}}>
                 <Col span={12}>
                     <Statistic valueStyle={{ fontSize: '40px' }} title="Followers" value={profile.followersCount} prefix={<TeamOutlined />} />
                 </Col>
@@ -37,14 +50,20 @@ const ProfileHeader: React.FC<IProps> = ({ profile }) => {
                     <Statistic valueStyle={{ fontSize: '40px' }} title="Following" value={profile.followingCount} prefix={<UsergroupAddOutlined />} />
                 </Col>
                 <Divider style={{ margin: '0px 0' }} />
-                <Button
-                    onMouseOver={changeButton}
-                    onMouseOut={changeButtonBack}
-                    danger={buttonInfo.color}
-                    style={{ marginTop: 16, width: '100%' }}
-                    type='primary'>
-                    {buttonInfo.text}
-                </Button>
+                {!isCurrentUser &&
+                    <Button
+                        loading={loading}
+                        onMouseOver={changeButton}
+                        onMouseOut={changeButtonBack}
+                        danger={buttonInfo.color}
+                        style={{ marginTop: 16, width: '100%'}}
+                        type='primary'
+                        onClick={ profile.following ?
+                            () => unfollow(profile.username) : 
+                            () => follow(profile.username)}>
+                        {buttonInfo.text}
+                    </Button>
+                }
             </Row>
         </List.Item>
     )
