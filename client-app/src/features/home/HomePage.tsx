@@ -23,14 +23,14 @@ const HomePage = () => {
 
                     {isLoggedIn && user ? (
                         <>
-                            <h3 style={{ fontSize: 20 }}>Welcome back {user.displayName}</h3>
+                            <h3 style={{ fontSize: 20, margin: '0 0 25px 0'  }}>Welcome back {user.displayName}</h3>
                             <Link to='/activities'>
                                 <Button ghost>Go To Activities</Button>
                             </Link>
                         </>
                     ) : (
                             <>
-                                <h3 style={{ fontSize: 20 }}>Welcome To Reactivities</h3>
+                                <h3 style={{ fontSize: 20, margin: '0 0 25px 0' }}>Welcome To Reactivities</h3>
                                 <StyledDiv2>
                                     <Button style={{ marginRight: '10px' }} onClick={() => openModal(<LoginForm />)} ghost>Login</Button>
                                     <Button style={{ marginLeft: '10px' }} onClick={() => openModal(<RegisterForm />)} ghost>Sign Up</Button>
